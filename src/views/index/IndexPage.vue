@@ -47,25 +47,25 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./pages/fix/produto.php">
+            <a class="nav-link" href="/produto">
               <i class="ti-mobile menu-icon"></i>
               <span class="menu-title">Produto</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/fix/equipe.php">
+            <a class="nav-link" href="/equipe">
               <i class="ti-user menu-icon"></i>
               <span class="menu-title">Equipe</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/fix/fornecedor.php">
+            <a class="nav-link" href="/fornecedor">
               <i class="ti-truck menu-icon"></i>
               <span class="menu-title">Fornecedor</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link">
+            <a class="nav-link" href="/mercado">
               <i class="ti-shopping-cart-full menu-icon"></i>
               <span class="menu-title">Mercado</span>
             </a>

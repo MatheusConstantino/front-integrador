@@ -50,37 +50,37 @@
             <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/src/index.php">
+                        <a class="nav-link" href="/">
                             <i class="ti-dashboard menu-icon"></i>
                             <span class="menu-title">Visão Geral</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/src/pages/fix/armazem.php">
+                        <a class="nav-link" href="/armazem">
                             <i class="ti-package menu-icon"></i>
                             <span class="menu-title">Armazem</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/src/pages/fix/produto.php">
+                        <a class="nav-link" href="/produto">
                             <i class="ti-mobile menu-icon"></i>
                             <span class="menu-title">Produto</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/src/pages/fix/equipe.php">
+                        <a class="nav-link" href="/equipe">
                             <i class="ti-user menu-icon"></i>
                             <span class="menu-title">Equipe</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/src/pages/fix/fornecedor.php">
+                        <a class="nav-link" href="/fornecedor">
                             <i class="ti-truck menu-icon"></i>
                             <span class="menu-title">Fornecedor</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/src/pages/fix/mercado.php">
+                        <a class="nav-link" href="/mercado">
                             <i class="ti-shopping-cart-full menu-icon"></i>
                             <span class="menu-title">Mercado</span>
                         </a>
@@ -206,22 +206,21 @@
                                     <p class="card-description">
                                     </p>
                                     <form action="#" method="post">
-                                    <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Expandir</span>
-                                                </div>
-                                                <select class="form-control" id="exampleFormControlSelect2">
-                                                    <!-- <option>Selecione</option> -->
-                                                    <option>25</option>
-                                                    <option>50</option>
-                                                    <option>150</option>
-                                                    <option>200</option>
-                                                    <option>250</option>
-                                                    <option>300</option>
-                                                    <option>350</option>
-                                                    <option>400</option>
-                                                </select>
-                                            </div>
+                                    <div class="form-group">
+                                   <label for="exampleFormControlSelect2">Quantidade</label>
+                                   <select class="form-control" id="exampleFormControlSelect2">
+                                    <option>SELECIONE</option>
+                                     <option>25</option>
+                                     <option>50</option>
+                                     <option>100</option>
+                                     <option>150</option>
+                                     <option>200</option>
+                                     <option>250</option>
+                                     <option>300</option>
+                                     <option>350</option>
+                                     <option>400</option>
+                                   </select>
+                           </div>
                                             <div class="my-3">
                                                 <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">COMPRAR</button>
                                             </div>  
@@ -239,22 +238,21 @@
                                     <p class="card-description">
                                     </p>
                                     <form action="#" method="post">
-                                    <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Lotes</span>
-                                                </div>
-                                                <select class="form-control" id="exampleFormControlSelect2">
-                                                    <!-- <option>Selecione</option> -->
-                                                    <option>25</option>
-                                                    <option>50</option>
-                                                    <option>150</option>
-                                                    <option>200</option>
-                                                    <option>250</option>
-                                                    <option>300</option>
-                                                    <option>350</option>
-                                                    <option>400</option>
-                                                </select>
-                                            </div>
+                                    <div class="form-group">
+                                   <label for="exampleFormControlSelect2">Quantidade</label>
+                                   <select class="form-control" id="exampleFormControlSelect2">
+                                    <option>SELECIONE</option>
+                                     <option>25</option>
+                                     <option>50</option>
+                                     <option>100</option>
+                                     <option>150</option>
+                                     <option>200</option>
+                                     <option>250</option>
+                                     <option>300</option>
+                                     <option>350</option>
+                                     <option>400</option>
+                                   </select>
+                           </div>
                                             <div class="my-3">
                                                 <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">COMPRAR</button>
                                             </div>  
@@ -272,22 +270,21 @@
                                     <p class="card-description">
                                     </p>
                                     <form action="#" method="post">
-                                    <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Novo</span>
-                                                </div>
-                                                <select class="form-control" id="exampleFormControlSelect2">
-                                                    <!-- <option>Selecione</option> -->
-                                                    <option>25</option>
-                                                    <option>50</option>
-                                                    <option>150</option>
-                                                    <option>200</option>
-                                                    <option>250</option>
-                                                    <option>300</option>
-                                                    <option>350</option>
-                                                    <option>400</option>
-                                                </select>
-                                            </div>
+                                    <div class="form-group">
+                                   <label for="exampleFormControlSelect2">Quantidade</label>
+                                   <select class="form-control" id="exampleFormControlSelect2">
+                                    <option>SELECIONE</option>
+                                     <option>25</option>
+                                     <option>50</option>
+                                     <option>100</option>
+                                     <option>150</option>
+                                     <option>200</option>
+                                     <option>250</option>
+                                     <option>300</option>
+                                     <option>350</option>
+                                     <option>400</option>
+                                   </select>
+                           </div>
                                             <div class="my-3">
                                                 <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">COMPRAR</button>
                                             </div>  
