@@ -8,7 +8,6 @@
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <ul class="navbar-nav navbar-nav-right">
-          </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
               <img src="/src/assets/images/faces/user.png" alt="profile" />
@@ -42,7 +41,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="pages/fix/armazem.php">
+            <a class="nav-link" href="/armazem">
               <i class="ti-package menu-icon"></i>
               <span class="menu-title">Armazem</span>
             </a>
