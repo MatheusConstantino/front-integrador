@@ -1,4 +1,5 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin')
 
 module.exports = {
@@ -9,6 +10,7 @@ module.exports = {
     entry: [
       './src/app.js'
     ],
+
     module: {
         rules: [
           {
@@ -16,7 +18,8 @@ module.exports = {
             use: [
               'style-loader',
               "css-loader",
-              "sass-loader"
+              "sass-loader",
+              'resolve-url-loader'
             ]
           },
           {
@@ -30,7 +33,7 @@ module.exports = {
               {
                loader: "file-loader",
                 options: {
-                  outputPath: './images',
+                  outputPath: './src/assets/images/',
                   name: "[name].[ext]",
                 },
               },
@@ -41,8 +44,13 @@ module.exports = {
             exclude: /(node_modules)/,
             use: 'babel-loader'
           },
-            
-        ]
+
+          
+        {
+          test: /\.(eot|svg|ttf|woff|woff2)$/,
+          loader: 'file-loader?name=/fonts/[name].[ext]'
+        },
+      ]
     },
     plugins: [
       new VueLoaderPlugin(),

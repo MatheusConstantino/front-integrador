@@ -1,2 +1,11 @@
 @import "./vendor/bootstrap.scss";
 @import './app/main.scss';
+/*-------------------------------------------------------------------*/
+/* === Import template variables === */
+@import "app/variables";
+
+/*-------------------------------------------------------------------*/
+/* === SCSS Compass Functions === */
+
+
+@import "app/index.scss";
