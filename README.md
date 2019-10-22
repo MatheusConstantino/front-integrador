@@ -1,4 +1,4 @@
-# Webpack Starter Kit project
+# Projeto integrador
 
 yarn install
 
