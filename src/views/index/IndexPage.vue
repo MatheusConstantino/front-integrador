@@ -3,15 +3,15 @@
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-       <a class="navbar-brand brand-logo mr-5" ><img src="../../assets/images/LogoJogo.png" class="mr-2" alt="logo" /></a>
-        <a class="navbar-brand brand-logo-mini" ><img src="../../assets/images/Game/LogoCut.png" alt="logo" /></a>
+       <a class="navbar-brand brand-logo mr-5" ><img src="/src/assets/images/LogoJogo.png" class="mr-2" alt="logo" /></a>
+        <a class="navbar-brand brand-logo-mini" ><img src="/src/assets/images/Game/LogoCut.png" alt="logo" /></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
         <ul class="navbar-nav navbar-nav-right">
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="../../assets/images/faces/user.png" alt="profile" />
+              <img src="/src/assets/images/faces/user.png" alt="profile" />
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
               <a class="dropdown-item">
@@ -96,7 +96,7 @@
                 <div class="card-body">
                   <p class="card-title text-md-center text-xl-left">Região:<span style="color:#000"> $regiao</span></p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center" style="text-align:center;">
-                    <img src="../../assets/images/places/agro.png" style="width:100%;">
+                    <img src="/src/assets/images/places/agro.png" style="width:100%;">
                   </div>
                 </div>
               </div>
@@ -192,4 +192,14 @@
     <!-- page-body-wrapper ends -->
   </div>
 </template>
+
+<script>
+
+  //depois quando houver integração importar os mapstate e actionstate
+
+  export default {
+    
+  }
+  
+</script>
 
