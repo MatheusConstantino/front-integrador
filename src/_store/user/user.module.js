@@ -1,5 +1,5 @@
 
-export default {
+export const user = {
     
     state: {
         userLogged: false,
@@ -7,24 +7,9 @@ export default {
     },
 
     actions : {
-        LOGIN: ({ dispatch, commit }, { username, password }) => {
-            commit('requestLoggin', { username })
-
-
-        },
-
-        REGISTER: ({ dispatch, commit }, user ) => {
-            commit('requestRegister', user);
-
-
-        },
-
-        LOGOUT: ({ commit }) => {
-
-        }
+    
     },
 
     mutations: { },
-    getters  : { },
 }
 

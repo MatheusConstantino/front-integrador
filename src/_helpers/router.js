@@ -20,17 +20,32 @@ export const router = new Router({
   hashbang: false,
   linkActiveClass: 'active',
   routes: [
-    { path: '/', component: IndexPage,  },
-    { path: '/armazem', component: ArmazemPage},
-    { path: '/produto', component: ProdutoPage},
-    { path: '/equipe', component: EquipePage},
-    {path: '/fornecedor', component: FornecedorPage},
-    {path: '/mercado', component: MercadoPage},
-    {path: '/cadastro-equipe', component: CadastroUser},
-    {path: '/cadastro-empresa', component: CadastroE},
-    {path: '/login', component: LoginPage},
-    {path: '/escolhe-regiao', component: CadastroRegiao},
+    { path: '/',                 component: IndexPage,     },
+    { path: '/armazem',          component: ArmazemPage    },
+    { path: '/produto',          component: ProdutoPage    },
+    { path: '/equipe',           component: EquipePage     },
+    { path: '/fornecedor',       component: FornecedorPage },
+    { path: '/mercado',          component: MercadoPage    },
+    { path: '/cadastro-equipe',  component: CadastroUser   },
+    { path: '/cadastro-empresa', component: CadastroE      },
+    { path: '/login',            component: LoginPage      },
+    { path: '/escolhe-regiao',   component: CadastroRegiao },
     { path: '*', redirect: '/' }
   ]
 });
+
+router.beforeEach((to, from, next) => {
+
+  const publicPages = ['/login', '/register'];
+  const authRequired = !publicPages.includes(to.path);
+  const loggedIn = localStorage.getItem('USER_TOKEN');
+
+  if (authRequired && !loggedIn) {
+    return next('/login');
+  }
+
+  
+
+  next();
+})
 

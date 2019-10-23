@@ -1,10 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import { alert } from './alert/alert.module';
+import { auth  } from './auth/auth.module';
+
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+export const store = new Vuex.Store({
     modules: {
-        //todas stores criadas
+        alert,
+        auth
     }
-  });
+});
