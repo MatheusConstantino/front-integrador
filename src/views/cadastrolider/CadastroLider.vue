@@ -12,20 +12,7 @@
                             <h6 class="font-weight-light">Informe os campos abaixo para cadastrar</h6>
                             <form class="pt-3">
                                 <div class="form-group">
-                                    <label>Nome da empresa</label>
-                                    <div class="input-group">
-                                        <div class="input-group-prepend bg-transparent">
-                                            <span class="input-group-text bg-transparent border-right-0">
-                                                <i class="ti-id-badge text-primary"></i>
-                                            </span>
-                                        </div>
-                                        <input type="text" class="form-control form-control-lg border-left-0"
-                                            id="exampleInputPassword" placeholder="Nome da empresa">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label>Nome do colaborador</label>
+                                    <label>Nome do lider</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend bg-transparent">
                                             <span class="input-group-text bg-transparent border-right-0">
@@ -38,7 +25,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Email do colaborador</label>
+                                    <label>Email do lider</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend bg-transparent">
                                             <span class="input-group-text bg-transparent border-right-0">
@@ -51,7 +38,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label>Senha do colaborador</label>
+                                    <label>Senha do lider</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend bg-transparent">
                                             <span class="input-group-text bg-transparent border-right-0">
@@ -65,10 +52,7 @@
 
                                 <div class="mt-3">
                                     <button type="reset" class="btn btn-block btn-primary btn-ls font-weight-medium auth-form-btn"
-                                    href="/cadastro-equipe">Cadastrar mais colaboradores</button>
-
-                                    <a class="btn btn-block btn-primary btn-ls font-weight-medium auth-form-btn"
-                                        href="/escolhe-regiao">Finalizar cadastro</a>
+                                    href="/cadastro-empresa">Cadastrar lider</button>
                                 </div>
                             </form>
                         </div>
