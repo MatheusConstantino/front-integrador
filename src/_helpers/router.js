@@ -12,6 +12,7 @@ import CadastroUser from '../views/cadastrouser/CadastroUser'
 import CadastroE from '../views/cadastroempresa/CadastroEPage'
 import LoginPage from '../views/login/LoginPage'
 import CadastroRegiao from '../views/cadastroregiao/CadastroRegiao'
+import CadastroLider from '../views/cadastrolider/CadastroLider'
 
 Vue.use(Router);
 
@@ -30,6 +31,7 @@ export const router = new Router({
     {path: '/cadastro-empresa', component: CadastroE},
     {path: '/login', component: LoginPage},
     {path: '/escolhe-regiao', component: CadastroRegiao},
+    {path: '/cadastro-lider', component: CadastroLider},
     { path: '*', redirect: '/' }
   ]
 });
