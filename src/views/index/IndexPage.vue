@@ -145,11 +145,11 @@
                     <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">100</h3>
                     <i class="ti-truck icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
-                  <p class="mb-0 mt-2 text-success"><span class="text-black ml-1"><small>Unidades compradas</small></span></p>
+                  <p class="mb-0 mt-2 text-success"><span class="text-black ml-1"><small>Unidades compradas na última compra</small></span></p>
                 </div>
               </div>
             </div>
-            <div class="col-md-3 grid-margin stretch-card">
+            <!-- <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-title text-md-center text-xl-left">Mercado</p>
@@ -160,7 +160,7 @@
                   <p class="mb-0 mt-2 text-success"><span class="text-black ml-1"><small>Valor do dolar</small></span></p>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">

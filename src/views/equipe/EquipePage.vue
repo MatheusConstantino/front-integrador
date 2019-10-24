@@ -198,7 +198,7 @@
                                      <option>Logistica</option>
                                     <option>Infraestrutura</option>
                                    </select>
-                               </div><br>
+                               </div>
                                         <div class="my-3">
                                             <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">CONTRATAR</button>
                                         </div>
