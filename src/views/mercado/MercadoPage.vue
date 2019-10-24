@@ -106,7 +106,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Demanda anual</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 100000</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 0000,00</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-danger">0.12% <span class="text-black ml-1"><small>(Ultimos
@@ -120,10 +120,10 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Demanda mensal</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 3000,00</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 0000,00</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <p class="mb-0 mt-2 text-success">50.0% <span class="text-black ml-1"><small>(Capacidade restante)</small></span></p>
+                                    <!-- <p class="mb-0 mt-2 text-success">50.0% <span class="text-black ml-1"><small>(Capacidade restante)</small></span></p> -->
                                 </div>
                             </div>
                         </div>
@@ -133,7 +133,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Inflação</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">10%</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">00 %</h3>
                                         <i class="ti-bar-chart-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-success">64.00%<span
@@ -147,7 +147,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Cotação dólar</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 4,20</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 00,00</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-success">64.00%<span

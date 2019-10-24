@@ -168,7 +168,7 @@
                                     <form action="#" method="post">
                                         <div class="form-group">
                     <label>Lotes</label>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username">
+                    <input type="text" class="form-control" placeholder="Quantidade" aria-label="Username">
                   </div>
                                <div class="form-group">
                                    <label for="exampleFormControlSelect2">Produto</label>
@@ -181,15 +181,6 @@
                                </div>
                                         <div class="form-group">
                                    <label for="exampleFormControlSelect2">Fornecedor</label>
-                                   <select class="form-control" id="exampleFormControlSelect2">
-                                   <option>SELECIONE</option>
-                                    <option>a</option>
-                                     <option>b</option>
-                                    <option>c</option>
-                                   </select>
-                               </div><br>
-                                        <div class="form-group">
-                                   <label for="exampleFormControlSelect2">Produto</label>
                                    <select class="form-control" id="exampleFormControlSelect2">
                                    <option>SELECIONE</option>
                                     <option>a</option>

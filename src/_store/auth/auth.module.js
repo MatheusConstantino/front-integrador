@@ -40,7 +40,6 @@ const mutations = {
         state.userRequestLogin = false;
         state.user = null;
     },
-
 }
 
 export const auth = {
