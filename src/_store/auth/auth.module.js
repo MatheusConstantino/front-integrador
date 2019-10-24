@@ -13,7 +13,6 @@ const actions = {
         realizarAuthenticacao(username, password)
             .then((onValue) => {
                 commit('loginSuccess', onValue);
-                debugger
                 router.push('/');
             })
             .catch((onError) => {
@@ -36,7 +35,6 @@ const mutations = {
         state.userRequestLogin = false;
         state.user = null;
     },
-
 }
 
 export const auth = {
