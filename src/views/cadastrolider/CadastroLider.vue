@@ -19,8 +19,9 @@
                                                 <i class="ti-pencil text-primary"></i>
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control form-control-lg border-left-0"
-                                            placeholder="Nome do colaborador">
+                                        <input type="text" v-model="nomeLider" name="nomeLider"  class="form-control form-control-lg border-left-0"
+                                            placeholder="Nome do lider">
+                                            <div v-show="submitted && !nomeLider" class="invalid-feedback">The name of leader is required</div>
                                     </div>
                                 </div>
 
@@ -32,8 +33,9 @@
                                                 <i class="ti-email text-primary"></i>
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control form-control-lg border-left-0"
-                                            placeholder="Email do colaborador">
+                                        <input type="text" v-model="emailLider" name="emailLider"  class="form-control form-control-lg border-left-0"
+                                            placeholder="Email do lider">
+                                            <div v-show="submitted && !nomeLider" class="invalid-feedback">The email of leader is required</div>
                                     </div>
                                 </div>
 
@@ -45,14 +47,15 @@
                                                 <i class="ti-lock text-primary"></i>
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control form-control-lg border-left-0"
-                                            placeholder="Senha do colaborador">
+                                        <input type="text" v-model="senhalider" name="senhaLider"  class="form-control form-control-lg border-left-0"
+                                            placeholder="Senha do lider">
+                                            <div v-show="submitted && !senhaLider" class="invalid-feedback">The password of leader is required</div>
                                     </div>
                                 </div>
 
                                 <div class="mt-3">
-                                    <button type="reset" class="btn btn-block btn-primary btn-ls font-weight-medium auth-form-btn"
-                                    href="/cadastro-empresa">Cadastrar lider</button>
+                                   <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" :aria-hidden="true" :disabled="auth.userRequestLogin" v-show="!auth.userRequestLogin"> CADASTRAR LIDER</button>
+                    <img v-show="auth.userRequestLogin" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                                 </div>
                             </form>
                         </div>

@@ -10,7 +10,7 @@
                             </div>
                             <h4>Cadastre sua empresa!</h4>
                             <h6 class="font-weight-light">Informe os campos abaixo para cadastrar</h6>
-                            <form class="pt-3">
+                            <form class="pt-3" @submit.prevent="handleSubmit">
                                 <div class="form-group">
                                     <label>Nome da empresa</label>
                                     <div class="input-group">
@@ -19,8 +19,9 @@
                                                 <i class="ti-id-badge text-primary"></i>
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control form-control-lg border-left-0"
+                                        <input type="text" v-model="nomeEmpresa" name="nomeEmpresa"  class="form-control form-control-lg border-left-0"
                                             id="exampleInputPassword" placeholder="Nome da empresa">
+                                            <div v-show="submitted && !nomeEmpresa" class="invalid-feedback">Company name is required</div>
                                     </div>
                                 </div>
 
@@ -32,8 +33,9 @@
                                                 <i class="ti-light-bulb text-primary"></i>
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control form-control-lg border-left-0"
+                                        <input type="text" v-model="motivoNome" name="motivoNome" class="form-control form-control-lg border-left-0"
                                             placeholder="Por que esse nome?">
+                                            <div v-show="submitted && !motivoNome" class="invalid-feedback">The reason of the name is required</div>
                                     </div>
                                 </div>
 
@@ -45,8 +47,9 @@
                                                 <i class="ti-check-box text-primary"></i>
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control form-control-lg border-left-0"
+                                        <input type="text" v-model="missaoEmpresa" name="missaoEmpresa"  class="form-control form-control-lg border-left-0"
                                             placeholder="Qual é a missão da empresa?">
+                                            <div v-show="submitted && !missaoEmpresa" class="invalid-feedback">The mission of the company are required</div>
                                     </div>
                                 </div>
 
@@ -58,8 +61,9 @@
                                                 <i class="ti-check-box text-primary"></i>
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control form-control-lg border-left-0"
+                                        <input type="text" v-model="visaoEmpresa" name="visaoEmpresa"   class="form-control form-control-lg border-left-0"
                                             placeholder="Qual é a visão da empresa?">
+                                            <div v-show="submitted && !visaoEmpresa" class="invalid-feedback">The mission of the company are required</div>
                                     </div>
                                 </div>
 
@@ -71,8 +75,9 @@
                                                 <i class="ti-check-box text-primary"></i>
                                             </span>
                                         </div>
-                                        <input type="text" class="form-control form-control-lg border-left-0"
+                                        <input type="text" v-model="valoresEmpresa" name="valoresEmpresa" class="form-control form-control-lg border-left-0"
                                             placeholder="Qual é o valor da empresa?">
+                                            <div v-show="submitted && !valoresEmpresa" class="invalid-feedback">The values of company are required</div>
                                     </div>
                                 </div>
 
@@ -84,8 +89,9 @@
                                     </div>
                                 <div class="mt-3">
                                     <i class="ti-chech text-primary"></i>
+                                                        <i class="ti-chech text-primary"></i>
                                     <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn"
-                                        href="/cadastro-equipe">Cadastrar empresa</a>
+                                        href="../../pages/new/cadastro-user.php">Cadastrar empresa</a>
                                 </div>
                             </form>
                         </div>
