@@ -1,7 +1,6 @@
-export const BASEURL    = 'https://companytrial-backend-beta.herokuapp.com';
-//export const BASEURL    = 'http://localhost:3000'
-export const REGISTER   = '';
-export const LOGIN      = '/login';
+export const BASEURL            = 'https://companytrial-backend-beta.herokuapp.com';
+export const LOGIN              = '/login';
+export const REGISTER_LIDER     = '';
 
 
 

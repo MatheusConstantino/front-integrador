@@ -7,7 +7,7 @@ const state = {
 }
 
 const actions = {
-    REGISTER_LIDER({ dispatch, commit }, { name, email, password}) {
+    REGISTER_LIDER({ dispatch, commit }, { name, email, password }) {
 
         commit('registerLiderRequest');
 
@@ -17,11 +17,13 @@ const actions = {
                 dispatch('alert/success', onError, { root: true }); 
             })
             .catch((onError) => {
+                debugger
                 commit('registerLiderFailure', onValue)
-                dispatch('alert/success', onError, { root: true }); 
+                dispatch('alert/error', onError, { root: true }); 
             })
     }
 }
+
 const mutations = {
     registerLiderRequest(state) {
         state.isRegistering = true;
