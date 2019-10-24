@@ -5,7 +5,7 @@ import { LOGIN } from '../../utils/environments';
 export const realizarAuthenticacao = (username, password) => {
     return openURL.post(LOGIN, { login: username, password })
         .then((onValue) => {
-            setUserLocalStorage(onValue);
+            setUserLocalStorage(onValue.data);
             setTokenLocalStorage(onValue.data.token)
             return Promise.resolve(onValue.data);
         })
