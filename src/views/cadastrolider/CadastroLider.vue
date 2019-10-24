@@ -11,7 +11,7 @@
                             <h4>Cadastre sua equipe!</h4>
                             <h6 class="font-weight-light">Informe os campos abaixo para cadastrar</h6>
                             
-                            <div class="alert alert-dismissible fade show" :class="`alert-${alert.type}`" role="alert" v-if="alert.message">
+                            <div class="alert alert-dismissible fade show" :class="`${alert.type}`" role="alert" v-if="alert.message">
                                 <strong>{{ alert.message }} !</strong>
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
@@ -30,6 +30,20 @@
                                         <input type="text" v-model="name" name="name" class="form-control form-control-lg border-left-0"
                                             placeholder="Nome do colaborador">
                                         <div v-show="submitted && !name" class="invalid-feedback">Name is required</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Username do lider</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="ti-pencil text-primary"></i>
+                                            </span>
+                                        </div>
+                                        <input type="text" v-model="username" name="username" class="form-control form-control-lg border-left-0"
+                                            placeholder="Username do colaborador">
+                                        <div v-show="submitted && !username" class="invalid-feedback">Username is required</div>
                                     </div>
                                 </div>
 
@@ -89,6 +103,7 @@ export default {
       return {
         name     : '',
         email    : '',
+        username : '',
         password : '',
         submitted: false
       }
@@ -102,14 +117,26 @@ export default {
     },
 
     methods: {
+        
         ...mapActions('lider', ['REGISTER_LIDER']),
-        handleSubmit (e) {
+
+        async handleSubmit (e) {
             this.submitted = true;
-            console.log("submited", this.submitted)
-            const { name, email, password } = this;
-            if (name && email && password) {
-                this.REGISTER_LIDER({ name, email, password })
+
+            const { username, name, email, password } = this;
+            
+            if (username && name && email && password) {
+                await this.REGISTER_LIDER({ username, name, email, password })
+                    .then((resolved) => this.clear())
             }
+        },
+
+        clear() {
+            this.name     = '',
+            this.email    = '',
+            this.username = '',
+            this.password = '',
+            this.submitted= false
         }
     }
 };

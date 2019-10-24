@@ -18,7 +18,7 @@ export const closeURL = axios.create({
 
 closeURL.interceptors.request.use(
   async (config) => {
-    config.headers.authorization = JSON.parse(localStorage.getItem('USER_TOKEN'));
+    config.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('USER_TOKEN'))}`;
     return config;
   },
   error => { Promise.reject(error) }
@@ -29,7 +29,9 @@ export const requestHandlerError = (error) => {
 
     const { data } = error;
 
-    if(_.isEqual(error.status, 401)) { return data ? data.error ? data.error : data : MENSAGEM_UNAUTHORIZED }
+    let errMsg ="";
+
+    if(_.isEqual(error.status, 401)) { return data ? data.message ? data.message : data : MENSAGEM_UNAUTHORIZED }
     if(_.isEqual(error.status, 404)) { return MENSAGEM_NOT_FOUND    }
     if(_.isEqual(error.status, 500)) { return MENSAGEM_ERRO         }
 

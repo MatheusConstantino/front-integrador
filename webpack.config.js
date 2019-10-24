@@ -68,6 +68,11 @@ module.exports = {
     },
 
     externals: {
-       apiUrl: 'http://localhost:3000'
+      apiUrl: 'https://companytrial-backend-beta.herokuapp.com',
+      closeURL: 'axios',
+      openURL: 'axios',
+      headers: {
+        "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+      }
     }
 }

@@ -7,18 +7,19 @@ const state = {
 }
 
 const actions = {
-    REGISTER_LIDER({ dispatch, commit }, { name, email, password }) {
+    REGISTER_LIDER({ dispatch, commit }, { username, name, email, password }) {
 
         commit('registerLiderRequest');
 
-        registerLider(name, email, password)
+        return registerLider(username, name, email, password)
             .then((onValue) => {
                 commit('registerLiderSuccess')
-                dispatch('alert/success', onError, { root: true }); 
+                dispatch('alert/success', `Usuário foi criado com sucesso.`, { root: true }); 
+                return Promise.resolve()
             })
             .catch((onError) => {
                 debugger
-                commit('registerLiderFailure', onValue)
+                commit('registerLiderFailure')
                 dispatch('alert/error', onError, { root: true }); 
             })
     }

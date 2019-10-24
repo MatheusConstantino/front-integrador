@@ -11,7 +11,7 @@
                 <h4>Olá!</h4>
                 <h6 class="font-weight-light">Faça Login para continuar</h6>
 
-                <div class="alert alert-warning alert-dismissible fade show" role="alert" v-if="alert.message">
+                <div class="alert alert-dismissible fade show"  :class ="`${alert.type}`" role="alert" v-if="alert.message">
                   <strong>{{ alert.message }} !</strong>
                   <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>

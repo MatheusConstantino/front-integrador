@@ -1,9 +1,28 @@
 export const BASEURL            = 'https://companytrial-backend-beta.herokuapp.com';
 export const LOGIN              = '/login';
-export const REGISTER_LIDER     = '';
+
+//registers
+export const REGISTER_ADMIN     = '/users/new-admin';
+export const REGISTER_TEACHER   = '/users/new-member';
+export const REGISTER_LIDER     = '/users/new-leader';
+export const REGISTER_MEMBER    = '/users/new-member';
+
+
+//search
+export const SEARCH_ALL         = '/users/all';
+export const SEARCH_BY_USERNAME = '/users/login';
+export const SEARCH_STUDENTS    = '/users/students';
+export const SEARCH_TEACHERS    = '/users/teachers';
+
+
+ 
+
+//delete
+export const DELETE_USER          = '/users/delete';
 
 
 
+//default messages
 export const MENSAGEM_ERRO          = `Erro inesperado do servidor, por favor tente mais tarde.`;
 export const MENSAGEM_TIMEOUT       = `Tempo de espera esgotado. Tente novamente em alguns instantes.`;
 export const MENSAGEM_NETWORK       = `Não possui conexão ou estamos offline, por favor tente mais tarde.`;

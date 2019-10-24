@@ -13,7 +13,11 @@ const actions = {
         realizarAuthenticacao(username, password)
             .then((onValue) => {
                 commit('loginSuccess', onValue);
-                debugger
+
+                if(onValue.roles.find((onValue) => { return _.isEqual(onValue, `TEACHER`) }))
+                {
+                    return router.push('/cadastro-lider')
+                }
                 router.push('/');
             })
             .catch((onError) => {
