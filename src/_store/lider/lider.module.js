@@ -18,7 +18,6 @@ const actions = {
                 return Promise.resolve()
             })
             .catch((onError) => {
-                debugger
                 commit('registerLiderFailure')
                 dispatch('alert/error', onError, { root: true }); 
             })

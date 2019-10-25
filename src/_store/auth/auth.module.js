@@ -27,7 +27,6 @@ const actions = {
                             if(_.isEmpty(onValue)) {
                                 return router.push('/cadastro-empresa')
                             }
-                            debugger
                             dispatch('company/PERSIST_COMPANY', onValue, { root: true })
                             return router.push('/escolhe-regiao')
                         }).catch((onError) => { })

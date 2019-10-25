@@ -22,5 +22,5 @@ export const store = new Vuex.Store({
         region,
         products
     },
-    plugins: [createPersistedState()]
+    plugins: [createPersistedState({blacklist: ["error", "success", "clear"]})]
 });

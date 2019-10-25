@@ -1,4 +1,4 @@
-import { registerCompany } from "../../services/company/company.service";
+import { registerCompany, searchCompanyByIdLeader } from "../../services/company/company.service";
 import { router } from '../../_helpers/router';
 
 const state = {
@@ -13,9 +13,15 @@ const actions = {
 
         registerCompany(name, motivo, missao, vision, valores, logo)
             .then((onResponse) => { 
-                commit('registerCompanySuccess', onResponse);
-                dispatch('alert/error', onResponse, { root: true }); 
-                router.push('/escolhe-regiao')    
+                var user = JSON.parse(localStorage.getItem('USER'));
+                console.log("USER", user)
+                debugger
+                searchCompanyByIdLeader(user.id).then((onResponse) => {
+                    debugger
+                    commit('registerCompanySuccess', onResponse);
+                    router.push('/escolhe-regiao')  
+                });
+                  
             })
             .catch((onError) => {
                 commit('registerCompanyFailure', onError);
@@ -36,7 +42,6 @@ const actions = {
 
 
     PERSIST_COMPANY({ commit }, company ) {
-        debugger
         commit('searchCompanySuccess', company)
     }
 
@@ -60,7 +65,6 @@ const mutations = {
         state.isRegistering = true;
     },
     searchCompanySuccess(state, company) {
-        debugger
         state.company = company;
     },
     searchCompanyFailure(state) {

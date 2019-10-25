@@ -19,7 +19,6 @@ const actions ={
 
 const mutations = {
     registerRegion(state, region) {
-        debugger
         state.data = {...region}
     },       
 }

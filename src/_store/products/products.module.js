@@ -10,7 +10,6 @@ const actions = {
         listAllProducts()
             .then((onData) => {
                 commit('listAllProductsSuccess', onData)
-                debugger
                 return Promise.resolve(onData)
             })
             .catch(() => { return Promise.reject() })
