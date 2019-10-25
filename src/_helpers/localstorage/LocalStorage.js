@@ -14,5 +14,13 @@ export function getTokenLocalStorage() {
     return JSON.parse(localStorage.getItem("USER_TOKEN"));
 }
 
+export function saveRegion(region){
+    localStorage.setItem("region",JSON.stringify(region));
+}
+
+export function getRegion(){
+    return JSON.parse(localStorage.getItem("region"))
+}
+
 
 

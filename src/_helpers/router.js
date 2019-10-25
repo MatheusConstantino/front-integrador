@@ -13,6 +13,9 @@ import CadastroE from '../views/cadastroempresa/CadastroEPage'
 import LoginPage from '../views/login/LoginPage'
 import CadastroRegiao from '../views/cadastroregiao/CadastroRegiao'
 import CadastroLider from '../views/cadastrolider/CadastroLider'
+import { getUserLocalStorage } from './localstorage/LocalStorage';
+
+import * as _ from 'lodash';
 
 Vue.use(Router);
 
@@ -21,18 +24,18 @@ export const router = new Router({
   hashbang: false,
   linkActiveClass: 'active',
   routes: [
-    { path: '/', component: IndexPage,  },
-    { path: '/armazem', component: ArmazemPage},
-    { path: '/produto', component: ProdutoPage},
-    { path: '/equipe', component: EquipePage},
-    {path: '/fornecedor', component: FornecedorPage},
-    {path: '/mercado', component: MercadoPage},
-    {path: '/cadastro-equipe', component: CadastroUser},
-    {path: '/cadastro-empresa', component: CadastroE},
-    {path: '/login', component: LoginPage},
-    {path: '/escolhe-regiao', component: CadastroRegiao},
-    {path: '/cadastro-lider', component: CadastroLider},
-    { path: '*', redirect: '/' }
+    { path: '/',                    component: IndexPage,           },
+    { path: '/armazem',             component: ArmazemPage          },
+    { path: '/produto',             component: ProdutoPage          },
+    { path: '/equipe',              component: EquipePage           },
+    { path: '/fornecedor',          component: FornecedorPage       } ,
+    { path: '/mercado',             component: MercadoPage          },
+    { path: '/cadastro-equipe',     component: CadastroUser         },
+    { path: '/cadastro-empresa',    component: CadastroE            },
+    { path: '/login',               component: LoginPage            },
+    { path: '/escolhe-regiao',      component: CadastroRegiao       },
+    { path: '/cadastro-lider',      component: CadastroLider        },
+    { path: '*', redirect: '/'                                      }
   ]
 });
 
@@ -45,9 +48,11 @@ router.beforeEach((to, from, next) => {
   if (authRequired && !loggedIn) {
     return next('/login');
   }
-
   
-
   next();
+})
+
+router.afterEach((to, from, next) => {
+  
 })
 

@@ -96,17 +96,16 @@
                         <div class="col-md-12 grid-margin">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard > Fornecedores</span>
+                                    <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard > Equipe</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-weight-bold mb-0">SELECIONE FORNECEDOR:</h4>
+                                    <h4 class="font-weight-bold mb-0">SELECIONE EQUIPE:</h4>
                                     <p>
                                         <div class="form-group">
                                             <select class="form-control form-control-sm" id="exampleFormControlSelect3">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
+                                                <option>Comercial</option>
+                                                <option>Logística</option>
+                                                <option>Infraestrutura</option>
                                             </select>
                                         </div>
                                 </div>
@@ -119,7 +118,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Salário</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 4000,00</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ {{this.salary}}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                 </div>
@@ -130,7 +129,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Desligamento</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 10000,00</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 10000</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                 </div>
@@ -141,7 +140,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Quantidade</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">100</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">{{this.employeesCount}}</h3>
                                         <i class="ti-user icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                 </div>
@@ -153,7 +152,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Treinamento</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">R$ 200,00</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">R$ {{this.trainingValue}}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                 </div>
@@ -181,7 +180,7 @@
                                     <form action="#" method="post">
                               <div class="form-group">
                                    <label for="exampleFormControlSelect2">Quantidade</label>
-                                   <select class="form-control" id="exampleFormControlSelect2">
+                                   <select class="form-control" id="exampleFormControlSelect2" v-model="selectedTeamCount">
                                      <option>SELECIONE</option>   
                                      <option>1</option>
                                      <option>2</option>
@@ -200,7 +199,7 @@
                                    </select>
                                </div>
                                         <div class="my-3">
-                                            <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">CONTRATAR</button>
+                                            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="hire($event)">CONTRATAR</button>
                                         </div>
                                     </form>
                                 </div>
@@ -239,3 +238,23 @@
     </div>
     <!-- container-scroller -->
 </template>
+
+<script>
+export default {
+    data: () => {
+        return {
+            selectedTeamCount: 0,
+            employeesCount: 30,
+            trainingValue: 9000,
+            salary: 30000
+        }
+    },
+    methods: {
+        hire: function (event) {
+            if (event) event.preventDefault()
+            this.employeesCount = parseInt(this.employeesCount) + (parseInt(this.selectedTeamCount) * 10)
+            this.salary = parseInt(this.employeesCount) * 1000
+        }
+    }
+}
+</script>

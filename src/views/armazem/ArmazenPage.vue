@@ -119,7 +119,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Capacidade total</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">30.400 <span>m²</span></h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{this.totalCapacity}} <span>L</span></h3>
                                         <i class="ti-package icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-danger">0.12% <span class="text-black ml-1"><small>(Ultimos
@@ -132,10 +132,10 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Capacidade utilizada</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">15.200 <span>m²</span></h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{this.usedCapacity}} <span>L</span></h3>
                                         <i class="ti-package icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <p class="mb-0 mt-2 text-success">50.0% <span class="text-black ml-1"><small>(Capacidade restante)</small></span></p>
+                                    <!-- <p class="mb-0 mt-2 text-success">50.0% <span class="text-black ml-1"><small>(Capacidade restante)</small></span></p> -->
                                 </div>
                             </div>
                         </div>
@@ -144,7 +144,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Capacidade disponível</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">15.200 <span>m²</span></h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{this.availableCapacity}} <span></span></h3>
                                         <i class="ti-package icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-success">64.00%<span
@@ -208,7 +208,7 @@
                                     <form action="#" method="post">
                                     <div class="form-group">
                                    <label for="exampleFormControlSelect2">Quantidade</label>
-                                   <select class="form-control" id="exampleFormControlSelect2">
+                                   <select class="form-control" id="exampleFormControlSelect2" v-model="selectedAddValue">
                                     <option>SELECIONE</option>
                                      <option>25</option>
                                      <option>50</option>
@@ -222,7 +222,7 @@
                                    </select>
                            </div>
                                             <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">COMPRAR</button>
+                                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="addValue($event)">COMPRAR</button>
                                             </div>  
                                     </form>
                                 </div>
@@ -240,7 +240,7 @@
                                     <form action="#" method="post">
                                     <div class="form-group">
                                    <label for="exampleFormControlSelect2">Quantidade</label>
-                                   <select class="form-control" id="exampleFormControlSelect2">
+                                   <select class="form-control" id="exampleFormControlSelect2" v-model="selectedRemoveValue">
                                     <option>SELECIONE</option>
                                      <option>25</option>
                                      <option>50</option>
@@ -254,7 +254,7 @@
                                    </select>
                            </div>
                                             <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">COMPRAR</button>
+                                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="removeValue($event)">COMPRAR</button>
                                             </div>  
                                     </form>
                                 </div>
@@ -272,7 +272,7 @@
                                     <form action="#" method="post">
                                     <div class="form-group">
                                    <label for="exampleFormControlSelect2">Quantidade</label>
-                                   <select class="form-control" id="exampleFormControlSelect2">
+                                   <select class="form-control" id="exampleFormControlSelect2" v-model="selectedBuyValue">
                                     <option>SELECIONE</option>
                                      <option>25</option>
                                      <option>50</option>
@@ -286,7 +286,7 @@
                                    </select>
                            </div>
                                             <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">COMPRAR</button>
+                                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="fixDummyError($event)">COMPRAR</button>
                                             </div>  
                                     </form>
                                 </div>
@@ -324,3 +324,35 @@
     </div>
     <!-- container-scroller -->
 </template>
+
+<script>
+export default {
+    data: () => {
+        return {
+            selectedRemoveValue: 0,
+            selectedAddValue: 0,
+            selectedBuyValue: 0,
+            totalCapacity: 1200,
+            availableCapacity: 1000,
+            usedCapacity: 200
+        }
+    },
+    methods: {
+        addValue: function (event) {
+            if (event) event.preventDefault()
+            this.totalCapacity = parseInt(this.totalCapacity) + parseInt(this.selectedAddValue)
+            this.availableCapacity = parseInt(this.availableCapacity) + parseInt(this.selectedAddValue)
+            this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
+        },
+        removeValue: function (event) {
+            if (event) event.preventDefault()
+            this.totalCapacity = parseInt(this.totalCapacity) - parseInt(this.selectedRemoveValue)
+            this.availableCapacity = parseInt(this.availableCapacity) - parseInt(this.selectedRemoveValue)
+            this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
+        },
+        fixDummyError: function (event) { 
+            if (event) event.preventDefault()
+        }
+    }
+}
+</script>
