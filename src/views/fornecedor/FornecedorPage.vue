@@ -102,11 +102,11 @@
                                     <h4 class="font-weight-bold mb-0">SELECIONE FORNECEDOR:</h4>
                                     <p>
                                         <div class="form-group">
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
+                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3"   v-bind:value="sale.provider" v-on:change="sale.provider = $event.target.value">
+                                                <option>Nacional mais barato</option>
+                                                <option>Nacional mais caro</option>
+                                                <option>Internacional mais barato</option>
+                                                <option>Internacional mais caro</option>
                                             </select>
                                         </div>
                                 </div>
@@ -149,15 +149,15 @@
                         </div>
 
                         <div class="col-md-3 grid-margin stretch-card">
-                            <div class="card">
+                    <!--         <div class="card">
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Valor por lote</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">R$ 2000</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">{{ sale.pricePack }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="col-md-6 grid-margin stretch-card">
                             <div class="card">
@@ -165,48 +165,69 @@
                                     <h4 class="card-title">Comprar produtos</h4>
                                     <p class="card-description">
                                     </p>
-                                    <form action="#" method="post">
+                                    <form action="#" method="">
                                         <div class="form-group">
                     <label>Lotes</label>
-                    <input type="text" class="form-control" placeholder="Quantidade" aria-label="Username">
-                  </div>
+                    <input type="text" class="form-control" placeholder="Quantidade" aria-label="Username"  v-model="sale.quantity">
+                    </div>
                                <div class="form-group">
                                    <label for="exampleFormControlSelect2">Produto</label>
-                                   <select class="form-control" id="exampleFormControlSelect2">
+                                   <p>{{ sale.provider }}</p>
+
+                                    <label for="exampleFormControlSelect2">Preço Individual do Produto</label>
+                                   <p>{{ sale.price }}</p>
+
+                                    <label for="exampleFormControlSelect2">Preço total do Lote</label>
+                                   <p> R$ {{ sale.pricePack }}</p>
+                            <!--         <input type="text" class="form-control" placeholder="Quantidade" aria-label="Username"  v-model="sale.product"> -->
+    <!--                                <select class="form-control" id="exampleFormControlSelect2"  v-bind:value="sale.product" v-on:change="sale.product = $event.target.value">
                                    <option>SELECIONE</option>
-                                    <option>a</option>
-                                     <option>b</option>
-                                    <option>c</option>
-                                   </select>
+                                    <option>Nacional mais barato</option>
+                                     <option>Nacional mais caro</option>
+                                    <option>Internacional mais</option>
+                                   </select> -->
                                </div>
-                                        <div class="form-group">
+<!--                                 <div class="form-group">
                                    <label for="exampleFormControlSelect2">Fornecedor</label>
-                                   <select class="form-control" id="exampleFormControlSelect2">
-                                   <option>SELECIONE</option>
-                                    <option>a</option>
-                                     <option>b</option>
-                                    <option>c</option>
+                                     <input type="text" class="form-control" placeholder="Quantidade" aria-label="Username"  v-model="sale.provider">
+                                    <select class="form-control" id="exampleFormControlSelect2">
+                                        <option>SELECIONE</option>
+                                        <option>a</option>
+                                        <option>b</option>
+                                        <option>c</option>
                                    </select>
-                               </div>
-                                        <div class="my-3">
-                                            <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">COMPRAR</button>
-                                        </div>
+                               </div> -->
                                     </form>
+                                    <div class="my-3">
+                                        <button type="" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="" v-on:click="simulate()">SIMULAR PREÇO</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-md-6 grid-margin stretch-card">
-                            <center>
+                            <left>
                                 <div class="card">
                                     <div class="card-body">
-                                        <h3 class="card-title">Simulação da compra</h3>
+                                        <h3 class="card-title">Resumo da compra</h3>
                                         <p class="card-description">
-                                            0
+                                            <h4> Quantidade </h4>
+                                            {{ sale.quantity }}
+                                            <br>
+                                            <h4> Produto </h4>
+                                            {{ sale.provider }}
+                                            <br>
+                                            <h4> Fornecedor </h4>
+                                            {{ sale.provider }}
+                                            <h4> Preço Total </h4>
+                                            R$ {{ sale.pricePack }}
                                         </p>
                                     </div>
                                 </div>
-                            </center>
+                                <div class="my-3">
+                                    <button type="" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="" v-on:click="setSale()">COMPRAR</button>
+                                </div>
+                            </left>
                         </div>
                     </div>
 
@@ -228,3 +249,51 @@
     </div>
     <!-- container-scroller -->
 </template>
+
+<script>
+  import { mapState, mapActions } from 'vuex'
+  import swal from 'sweetalert'
+
+export default {
+    data () {
+      return {
+        sale: {
+          quantity : '',
+          provider : '',
+          pricePack : '0.00',
+          price : ''
+        }
+      }
+    },
+    methods: {
+      simulate() {
+        if (this.sale.provider === 'Nacional mais barato') {
+            this.sale.price = 'R$ 850,00'
+            this.sale.pricePack = (this.sale.quantity * 850)
+        } else if (this.sale.provider === 'Nacional mais caro') {
+            this.sale.price = '2.100,00'
+            this.sale.pricePack = (this.sale.quantity * 2100)
+        } else if (this.sale.provider === 'Internacional mais barato') {
+            this.sale.price = '1.000,00'
+            this.sale.pricePack = (this.sale.quantity * 1000)
+        } else if (this.sale.provider === 'Internacional mais caro') {
+            this.sale.price = '6.000,00'
+            this.sale.pricePack = (this.sale.quantity * 6000)
+        }
+      },
+      setSale() {
+        this.sale.quantity = ''
+        this.sale.provider = ''
+        this.sale.pricePack = ''
+        this.sale.price = ''
+
+        return (swal({
+          title: "Parabéns!",
+          text: 'Compra efetuada com sucesso',
+          icon: 'success',
+          className: 'swal-footer'
+        }))
+      }
+    }
+}
+</script>
