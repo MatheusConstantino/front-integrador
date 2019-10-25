@@ -14,38 +14,22 @@
 
                                 <div class="col-lg-6">
                                     <div class="form-group">
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios1" value="">
-                                                Agro Econômica
+                                        <div v-for="(item,index) in regions" v-bind:key="index" class="form-check">
+                                            <input class="form-check-input" v-model="region" v-bind:value="item" type="radio" name="optionsRadios" v-bind:id="`option-${index}`" >
+                                            <label class="form-check-label" v-bind:for="`option-${index}`">
+                                               {{item.description}}
+                                            <p class="mb-0 mt-2 "><b>Custo:</b> R$ {{ item.allCost.toFixed(2)}}</p>
+                                            <p class="mb-0 mt-2 "><b>Pessoas por ERB:</b> R$ {{ item.personCost.toFixed(2) }}</p>
                                             </label>
-                                            <p class="mb-0 mt-2 "><b>Custo:</b> R$ 75.000.000,00</p>
-                                            <p class="mb-0 mt-2 "><b>Pessoas por ERB:</b> 2.346</p>
+                                            <hr>
                                         </div>
-                                        <hr>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" checked>
-                                                Turística
-                                            </label>
-                                            <p class="mb-0 mt-2 "><b>Custo:</b> R$ 80.000.000,00</p>
-                                            <p class="mb-0 mt-2 "><b>Pessoas por ERB:</b> 1727</p>
-                                        </div>
-                                        <hr>
-                                        <div class="form-check">
-                                            <label class="form-check-label">
-                                                <input type="radio" class="form-check-input" name="optionsRadios" id="optionsRadios2" value="option2" checked>
-                                                Industrializada
-                                            </label>
-                                            <p class="mb-0 mt-2 "><b>Custo:</b> R$ 120.000.000,00</p>
-                                            <p class="mb-0 mt-2 "><b>Pessoas por ERB:</b> 1307</p>
-                                        </div>
-                                        <hr>
+                                        
+                                        
                                     </div>
                                 </div>
 
                                 <div class="mt-3">
-                                    <a class="btn btn-block btn-primary btn-ls font-weight-medium auth-form-btn" href="/">Escolher região</a>
+                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="setRegion" :disabled="!region" >Escolher região</button>
                                 </div>
                             </form>
                         </div>
@@ -62,3 +46,35 @@
     </div>
     <!-- container-scroller -->
 </template>
+<script>
+
+import { mapState, mapActions } from 'vuex'
+
+export default {
+    data(){
+        return{
+            region:undefined,
+            regions:[
+                { description : "Agro Econômica", allCost: 75000000, personCost : 2346 },
+                { description : "Turística", allCost: 80000000, personCost : 1727 },
+                { description : "Industrializada", allCost: 120000000, personCost : 1307 }
+            ]
+        }
+    },
+
+    methods: {
+        ...mapActions('region', ['PERSIST_REGION']),
+        
+        setRegion (e) {
+            debugger
+            console.log("THIS",this)
+            const { region } = this;
+            if (region) {
+                debugger
+                this.PERSIST_REGION({ region })
+            }
+        }
+      
+    }
+}
+</script>

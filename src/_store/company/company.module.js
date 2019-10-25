@@ -1,4 +1,5 @@
 import { registerCompany } from "../../services/company/company.service";
+import { router } from '../../_helpers/router';
 
 const state = {
     isRegistering : false,
@@ -14,7 +15,7 @@ const actions = {
             .then((onResponse) => { 
                 commit('registerCompanySuccess', onResponse);
                 dispatch('alert/error', onResponse, { root: true }); 
-                router.push('/')    
+                router.push('/escolhe-regiao')    
             })
             .catch((onError) => {
                 commit('registerCompanyFailure', onError);
@@ -28,11 +29,16 @@ const actions = {
         searchCompanyByIdLeader(id)
         .then((onResponse) => { 
             commit('searchCompanySuccess', onResponse);
-            dispatch('alert/error', onError, { root: true });     
+            dispatch('alert/success', onResponse, { root: true });     
         })
         .catch((onError) => { })
-    }
+    },
 
+
+    PERSIST_COMPANY({ commit }, company ) {
+        debugger
+        commit('searchCompanySuccess', company)
+    }
 
 
 }
@@ -54,6 +60,7 @@ const mutations = {
         state.isRegistering = true;
     },
     searchCompanySuccess(state, company) {
+        debugger
         state.company = company;
     },
     searchCompanyFailure(state) {

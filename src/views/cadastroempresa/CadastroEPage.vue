@@ -92,8 +92,14 @@
                                 <div class="form-group">
                                         <label>Logo da empresa</label>
                                         <div class="input-group">
-                                            <input @change="previewImage" type="file" name="photo" accept="image/*" class="form-control form-control-lg">
-                                            <img :src="logo" class="image" style="max-heigth=50px; max-width=50px;">
+                                         <div class="input-group-prepend bg-transparent">
+                                            <span class="input-group-text bg-transparent border-right-0">
+                                                <i class="ti-check-box text-primary"></i>
+                                            </span>
+                                        </div>
+                                           <!--  <input @change="previewImage" type="file" name="photo" accept="image/*" class="form-control form-control-lg">
+                                            <img :src="logo" class="image" style="max-heigth=50px; max-width=50px;"> -->
+                                            <input v-model="logo" name="logo" class="form-control form-control-lg border-left-0" placeholder="URL IMAGEM">
                                             <div v-show="submitted && !logo" class="invalid-feedback">Logo is required</div>
                                         </div>
                                     </div>
@@ -132,6 +138,10 @@ export default {
         submitted   : false
       }
     },
+
+    create: {
+        
+    }
 
     computed: {
         ...mapState({

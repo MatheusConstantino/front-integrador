@@ -93,9 +93,9 @@
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Região:<span style="color:#000"> $regiao</span></p>
+                  <p class="card-title text-md-center text-xl-left">Região:<span style="color:#000"> {{ region.description }}</span></p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center" style="text-align:center;">
-                    <img src="/src/assets/images/places/agro.png" style="width:100%;">
+                    <img :src="`${company.company.logoUrl}`" style="width:100%;">
                   </div>
                 </div>
               </div>
@@ -106,7 +106,7 @@
                 <div class="card-body">
                   <p class="card-title text-md-center text-xl-left">Capital da empresa</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 3400,40</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ {{ company.company.cashFlow.toFixed(2) }}</h3>
                     <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
                   <p class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Para gasto</small></span></p>
@@ -193,11 +193,18 @@
 </template>
 
 <script>
-
   //depois quando houver integração importar os mapstate e actionstate
+  import { mapState, mapActions } from 'vuex'
 
   export default {
     
+    computed: {
+        ...mapState({
+            region : state => state.region.data,
+            auth  : state => state.auth,
+            company: state => state.company
+        })
+    },
   }
   
 </script>

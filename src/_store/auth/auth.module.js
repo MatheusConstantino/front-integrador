@@ -2,6 +2,7 @@ import { realizarAuthenticacao } from '../../services/authentication/auth.servic
 import { router } from '../../_helpers/router';
 import { searchCompanyByIdLeader } from '../../services/company/company.service';
 
+
 const state = {
     userRequestLogin: false,
     user: {}
@@ -26,9 +27,10 @@ const actions = {
                             if(_.isEmpty(onValue)) {
                                 return router.push('/cadastro-empresa')
                             }
+                            dispatch('company/PERSIST_COMPANY', onValue, { root: true })
                             return router.push('/escolhe-regiao')
-                        })
-                        .catch((onError) => { })
+                        }).catch((onError) => { })
+                    
                     
                 }
 
