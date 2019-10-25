@@ -115,14 +115,14 @@ export default {
 
     computed: {
         ...mapState({
-            alert : state => state.alert,
-            user  : state => state.user
+            alert   : state => state.alert,
+            company : state => state.company
         })
     },
 
     methods: {
         
-        ...mapActions('user', ['REGISTER_MEMBER']),
+        ...mapActions('company', ['REGISTER_MEMBER']),
 
         handleSubmit (e) {
             this.submitted = true;

@@ -5,6 +5,7 @@ import { alert } from './alert/alert.module';
 import { auth  } from './auth/auth.module';
 import { lider } from './lider/lider.module';
 import { user  } from './user/user.module';
+import { company } from './company/company.module';
 
 Vue.use(Vuex);
 
@@ -13,6 +14,7 @@ export const store = new Vuex.Store({
         alert,
         auth,
         lider,
-        user
+        user,
+        company
     }
 });
