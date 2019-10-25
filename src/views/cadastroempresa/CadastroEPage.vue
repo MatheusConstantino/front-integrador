@@ -141,7 +141,7 @@ export default {
 
     create: {
         
-    }
+    },
 
     computed: {
         ...mapState({
