@@ -8,6 +8,7 @@ import { lider } from './lider/lider.module';
 import { user  } from './user/user.module';
 import { company } from './company/company.module';
 import { region } from './region/region.module';
+import { products} from './products/products.module';
 
 Vue.use(Vuex);
 
@@ -18,7 +19,8 @@ export const store = new Vuex.Store({
         lider,
         user,
         company,
-        region
+        region,
+        products
     },
     plugins: [createPersistedState()]
 });

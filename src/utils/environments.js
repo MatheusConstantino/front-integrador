@@ -18,7 +18,8 @@ export const SEARCH_COMPANY_LEADER_ID = '/companies/leader';
 
 
 //list
-export const LIST_ALL_MEMBERS_COMPANY = '/companies/company-members';
+export const LIST_ALL_MEMBERS_COMPANY   = '/companies/company-members';
+export const LIST_ALL_PRODUCTS          = '/products/all';
  
 
 //delete

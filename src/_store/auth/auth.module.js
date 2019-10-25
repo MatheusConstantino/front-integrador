@@ -16,25 +16,28 @@ const actions = {
             .then(async(onValue) => {
                 commit('loginSuccess', onValue);
 
-                if(await onValue.roles.find((onValue) => { return _.isEqual(onValue, `TEACHER`) }))
+                if(onValue.roles.find((onValue) => { return _.isEqual(onValue, `TEACHER`) }))
                 {
                     return router.push('/cadastro-lider')
                 }
-                if(await onValue.roles.find((onValue) => { return _.isEqual(onValue, `LEADER`) }))
+                else if(onValue.roles.find((onValue) => { return _.isEqual(onValue, `LEADER`) }))
                 {
-                    searchCompanyByIdLeader(onValue.id)
+                    await searchCompanyByIdLeader(onValue.id)
                         .then((onValue) => {
                             if(_.isEmpty(onValue)) {
                                 return router.push('/cadastro-empresa')
                             }
+                            debugger
                             dispatch('company/PERSIST_COMPANY', onValue, { root: true })
                             return router.push('/escolhe-regiao')
                         }).catch((onError) => { })
                     
                     
+                }else {
+                    return router.push('/');
                 }
 
-                router.push('/');
+                
             })
             .catch((onError) => {
                 commit('loginFailure', onError);
