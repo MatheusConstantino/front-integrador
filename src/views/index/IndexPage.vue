@@ -93,7 +93,7 @@
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Região:<span style="color:#000"> $regiao</span></p>
+                  <p class="card-title text-md-center text-xl-left">Região:<span style="color:#000"> {{ region.description }}</span></p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center" style="text-align:center;">
                     <img src="/src/assets/images/places/agro.png" style="width:100%;">
                   </div>
@@ -193,11 +193,17 @@
 </template>
 
 <script>
-
   //depois quando houver integração importar os mapstate e actionstate
+  import { mapState, mapActions } from 'vuex'
 
   export default {
     
+    computed: {
+        ...mapState({
+            region : state => state.region.data,
+            auth  : state => state.auth
+        })
+    },
   }
   
 </script>
