@@ -85,6 +85,24 @@
                             <span class="menu-title">Mercado</span>
                         </a>
                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/venda">
+                            <i class="ti-money menu-icon"></i>
+                            <span class="menu-title">Venda</span>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/emprestimo">
+                            <i class="ti-credit-card menu-icon"></i>
+                            <span class="menu-title">Emprestimo</span>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/historico">
+                            <i class="ti-receipt menu-icon"></i>
+                            <span class="menu-title">Historico</span>
+                        </a>
+                    </li>
                 </ul>
             </nav>
 

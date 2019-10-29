@@ -13,6 +13,10 @@ import CadastroE from '../views/cadastroempresa/CadastroEPage'
 import LoginPage from '../views/login/LoginPage'
 import CadastroRegiao from '../views/cadastroregiao/CadastroRegiao'
 import CadastroLider from '../views/cadastrolider/CadastroLider'
+import Emprestimo from '../views/emprestimo/Emprestimo'
+import Venda from '../views/venda/Vendas'
+import Historico from '../views/historico/Historico'
+
 import { getUserLocalStorage } from './localstorage/LocalStorage';
 
 import * as _ from 'lodash';
@@ -35,6 +39,9 @@ export const router = new Router({
     { path: '/login',               component: LoginPage            },
     { path: '/escolhe-regiao',      component: CadastroRegiao       },
     { path: '/cadastro-lider',      component: CadastroLider        },
+    {path: '/emprestimo', component: Emprestimo},
+    {path: '/venda', component: Venda},
+    {path: '/historico', component: Historico},
     { path: '*', redirect: '/'                                      }
   ]
 });

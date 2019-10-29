@@ -1,5 +1,5 @@
 <template>
-    <div class="container-scroller">
+     <div class="container-scroller">
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -9,8 +9,8 @@
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <!-- <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
                     <span class="ti-view-list"></span>
-                </button>
-                <ul class="navbar-nav mr-lg-2">
+                </button> -->
+                <!-- <ul class="navbar-nav mr-lg-2">
                     <li class="nav-item nav-search d-none d-lg-block">
                         <div class="input-group">
                             <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
@@ -23,7 +23,6 @@
                     </li>
                 </ul> -->
                 <ul class="navbar-nav navbar-nav-right">
-
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
                             <img src="/src/assets/images/faces/user.png" alt="profile" />
@@ -48,7 +47,7 @@
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
             <!-- partial:partials/_sidebar.html -->
-           <nav class="sidebar sidebar-offcanvas" id="sidebar">
+            <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link" href="/">
@@ -114,17 +113,17 @@
                         <div class="col-md-12 grid-margin">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard > Fornecedores</span>
+                                    <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard > Empréstimo</span>
                                 </div>
                                 <div>
-                                    <h4 class="font-weight-bold mb-0">SELECIONE FORNECEDOR:</h4>
+                                    <h4 class="font-weight-bold mb-0">SELECIONE EMPRESTIMO:</h4>
                                     <p>
                                         <div class="form-group">
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3"   v-bind:value="sale.provider" v-on:change="sale.provider = $event.target.value">
-                                                <option>Nacional mais barato</option>
-                                                <option>Nacional mais caro</option>
-                                                <option>Internacional mais barato</option>
-                                                <option>Internacional mais caro</option>
+                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3">
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
                                             </select>
                                         </div>
                                 </div>
@@ -135,120 +134,98 @@
                         <div class="col-md-3 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <p class="card-title text-md-center text-xl-left">Fornecedor</p>
+                                    <p class="card-title text-md-center text-xl-left">Valor total</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">Apple INC</h3>
-                                        <i class="ti-truck icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="card-title text-md-center text-xl-left">Tipo produto</p>
-                                    <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">Celular</h3>
-                                        <i class="ti-mobile icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <p class="card-title text-md-center text-xl-left">Quantidade</p>
-                                    <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">1000</h3>
-                                        <i class="ti-package icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3 grid-margin stretch-card">
-                    <!--         <div class="card">
-                                <div class="card-body">
-                                    <p class="card-title text-md-center text-xl-left">Valor por lote</p>
-                                    <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">{{ sale.pricePack }}</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">RS 10000,00 </h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
+                                    <!-- <p class="mb-0 mt-2 text-danger">0.12% <span class="text-black ml-1"><small>(Ultimos
+                                                30 dias)</small></span></p> -->
                                 </div>
-                            </div> -->
+                            </div>
                         </div>
-                        <div class="col-md-6 grid-margin stretch-card">
+                        <div class="col-md-3 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Comprar produtos</h4>
-                                    <p class="card-description">
-                                    </p>
-                                    <form action="#" method="">
-                                        <div class="form-group">
-                    <label>Lotes</label>
-                    <input type="text" class="form-control" placeholder="Quantidade" aria-label="Username"  v-model="sale.quantity">
-                    </div>
-                               <div class="form-group">
-                                   <label for="exampleFormControlSelect2">Produto</label>
-                                   <p>{{ sale.provider }}</p>
-
-                                    <label for="exampleFormControlSelect2">Preço Individual do Produto</label>
-                                   <p>{{ sale.price }}</p>
-
-                                    <label for="exampleFormControlSelect2">Preço total do Lote</label>
-                                   <p> R$ {{ sale.pricePack }}</p>
-                            <!--         <input type="text" class="form-control" placeholder="Quantidade" aria-label="Username"  v-model="sale.product"> -->
-    <!--                                <select class="form-control" id="exampleFormControlSelect2"  v-bind:value="sale.product" v-on:change="sale.product = $event.target.value">
-                                   <option>SELECIONE</option>
-                                    <option>Nacional mais barato</option>
-                                     <option>Nacional mais caro</option>
-                                    <option>Internacional mais</option>
-                                   </select> -->
-                               </div>
-<!--                                 <div class="form-group">
-                                   <label for="exampleFormControlSelect2">Fornecedor</label>
-                                     <input type="text" class="form-control" placeholder="Quantidade" aria-label="Username"  v-model="sale.provider">
-                                    <select class="form-control" id="exampleFormControlSelect2">
-                                        <option>SELECIONE</option>
-                                        <option>a</option>
-                                        <option>b</option>
-                                        <option>c</option>
-                                   </select>
-                               </div> -->
-                                    </form>
-                                    <div class="my-3">
-                                        <button type="" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="" v-on:click="simulate()">SIMULAR PREÇO</button>
+                                    <p class="card-title text-md-center text-xl-left">Valor parcela</p>
+                                    <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 10000,00 </h3>
+                                        <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
+                                    <!-- <p class="mb-0 mt-2 text-success">50.0% <span class="text-black ml-1"><small>(Capacidade restante)</small></span></p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title text-md-center text-xl-left">Juros</p>
+                                    <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">10 %</h3>
+                                        <i class="ti-package icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                                    </div>
+                                    <p class="mb-0 mt-2 text-success">Ao ano<span
+                                            class="text-black ml-1"></span></p> 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title text-md-center text-xl-left">Rodada pedido</p>
+                                    <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">Rodada: X</h3>
+                                        <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                                    </div>
+                                    <!-- <p class="mb-0 mt-2 text-success">23.00%<span class="text-black ml-1"><small>(30
+                                                days)</small></span></p> -->
                                 </div>
                             </div>
                         </div>
 
-                        <div class="col-md-6 grid-margin stretch-card">
-                            <left>
-                                <div class="card">
-                                    <div class="card-body">
-                                        <h3 class="card-title">Resumo da compra</h3>
-                                        <p class="card-description">
-                                            <h4> Quantidade </h4>
-                                            {{ sale.quantity }}
-                                            <br>
-                                            <h4> Produto </h4>
-                                            {{ sale.provider }}
-                                            <br>
-                                            <h4> Fornecedor </h4>
-                                            {{ sale.provider }}
-                                            <h4> Preço Total </h4>
-                                            R$ {{ sale.pricePack }}
-                                        </p>
+                        <div class="col-md-3 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-title text-md-center text-xl-left">Parcelas restantes</p>
+                                    <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">3 <span>parcelas</span></h3>
+                                        <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
+                                    <!-- <p class="mb-0 mt-2 text-success">23.00%<span class="text-black ml-1"><small>(30
+                                                    days)</small></span></p> -->
                                 </div>
-                                <div class="my-3">
-                                    <button type="" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="" v-on:click="setSale()">COMPRAR</button>
-                                </div>
-                            </left>
+                            </div>
                         </div>
-                    </div>
 
+
+                        <div class="col-12"></div>
+
+                         <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Pedir empréstimo</h4>
+                                    <p class="card-description">
+                                    </p>
+                                    <form action="#" method="post">
+                              <div class="form-group">
+                                   <label for="exampleFormControlSelect2">Valor do empréstimo</label>
+                                   <!-- <select class="form-control" id="exampleFormControlSelect2">
+                                   <option>SELECIONE</option>
+                                    <option>Comercial</option>
+                                     <option>Logistica</option>
+                                    <option>Infraestrutura</option>
+                                   </select> -->
+                                   <input type="text" class="form-control" placeholder="Valor" aria-label="valorEMprestimo">
+                               </div>
+                                        <div class="my-3">
+                                            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="hire($event)">PEDIR EMPRESTIMO</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>          
+
+                    </div>
                 </div>
                 <!-- content-wrapper ends -->
                 <!-- partial:partials/_footer.html -->
@@ -262,56 +239,39 @@
             </div>
             <!-- main-panel ends -->
         </div>
-
         <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
-  import swal from 'sweetalert'
-
 export default {
-    data () {
-      return {
-        sale: {
-          quantity : '',
-          provider : '',
-          pricePack : '0.00',
-          price : ''
+    data: () => {
+        return {
+            selectedRemoveValue: 0,
+            selectedAddValue: 0,
+            selectedBuyValue: 0,
+            totalCapacity: 1200,
+            availableCapacity: 1000,
+            usedCapacity: 200
         }
-      }
     },
     methods: {
-      simulate() {
-        if (this.sale.provider === 'Nacional mais barato') {
-            this.sale.price = 'R$ 850,00'
-            this.sale.pricePack = (this.sale.quantity * 850)
-        } else if (this.sale.provider === 'Nacional mais caro') {
-            this.sale.price = '2.100,00'
-            this.sale.pricePack = (this.sale.quantity * 2100)
-        } else if (this.sale.provider === 'Internacional mais barato') {
-            this.sale.price = '1.000,00'
-            this.sale.pricePack = (this.sale.quantity * 1000)
-        } else if (this.sale.provider === 'Internacional mais caro') {
-            this.sale.price = '6.000,00'
-            this.sale.pricePack = (this.sale.quantity * 6000)
+        addValue: function (event) {
+            if (event) event.preventDefault()
+            this.totalCapacity = parseInt(this.totalCapacity) + parseInt(this.selectedAddValue)
+            this.availableCapacity = parseInt(this.availableCapacity) + parseInt(this.selectedAddValue)
+            this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
+        },
+        removeValue: function (event) {
+            if (event) event.preventDefault()
+            this.totalCapacity = parseInt(this.totalCapacity) - parseInt(this.selectedRemoveValue)
+            this.availableCapacity = parseInt(this.availableCapacity) - parseInt(this.selectedRemoveValue)
+            this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
+        },
+        fixDummyError: function (event) { 
+            if (event) event.preventDefault()
         }
-      },
-      setSale() {
-        this.sale.quantity = ''
-        this.sale.provider = ''
-        this.sale.pricePack = ''
-        this.sale.price = ''
-
-        return (swal({
-          title: "Parabéns!",
-          text: 'Compra efetuada com sucesso',
-          icon: 'success',
-          className: 'swal-footer'
-        }))
-      }
     }
 }
 </script>

@@ -32,46 +32,64 @@
     <!-- partial -->
     <div class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
-      <nav class="sidebar sidebar-offcanvas" id="sidebar">
-        <ul class="nav">
-          <li class="nav-item">
-            <a class="nav-link" >
-              <i class="ti-dashboard menu-icon"></i>
-              <span class="menu-title">Visão Geral</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/armazem">
-              <i class="ti-package menu-icon"></i>
-              <span class="menu-title">Armazem</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/produto">
-              <i class="ti-mobile menu-icon"></i>
-              <span class="menu-title">Produto</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/equipe">
-              <i class="ti-user menu-icon"></i>
-              <span class="menu-title">Equipe</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/fornecedor">
-              <i class="ti-truck menu-icon"></i>
-              <span class="menu-title">Fornecedor</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/mercado">
-              <i class="ti-shopping-cart-full menu-icon"></i>
-              <span class="menu-title">Mercado</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
+     <nav class="sidebar sidebar-offcanvas" id="sidebar">
+                <ul class="nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">
+                            <i class="ti-dashboard menu-icon"></i>
+                            <span class="menu-title">Visão Geral</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/armazem">
+                            <i class="ti-package menu-icon"></i>
+                            <span class="menu-title">Armazem</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/produto">
+                            <i class="ti-mobile menu-icon"></i>
+                            <span class="menu-title">Produto</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/equipe">
+                            <i class="ti-user menu-icon"></i>
+                            <span class="menu-title">Equipe</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/fornecedor">
+                            <i class="ti-truck menu-icon"></i>
+                            <span class="menu-title">Fornecedor</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/mercado">
+                            <i class="ti-shopping-cart-full menu-icon"></i>
+                            <span class="menu-title">Mercado</span>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/venda">
+                            <i class="ti-money menu-icon"></i>
+                            <span class="menu-title">Venda</span>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/emprestimo">
+                            <i class="ti-credit-card menu-icon"></i>
+                            <span class="menu-title">Emprestimo</span>
+                        </a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/historico">
+                            <i class="ti-receipt menu-icon"></i>
+                            <span class="menu-title">Historico</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
 
       <!-- partial -->
       <div class="main-panel">
@@ -140,7 +158,7 @@
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Fornecedor</p>
+                  <p class="card-title text-md-center text-xl-left">Compra</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
                     <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">100</h3>
                     <i class="ti-truck icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
