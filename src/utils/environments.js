@@ -6,15 +6,19 @@ export const REGISTER_ADMIN     = '/users/new-admin';
 export const REGISTER_TEACHER   = '/users/new-member';
 export const REGISTER_LIDER     = '/users/new-leader';
 export const REGISTER_MEMBER    = '/users/new-member';
-export const REGISTER_COMPANY   = '/companies/new'
+export const REGISTER_COMPANY   = '/companies/new';
+export const REGISTER_NEW_LOAN  = '/loan/new';
 
 
 //search
-export const SEARCH_ALL         = '/users/all';
-export const SEARCH_BY_USERNAME = '/users/login';
-export const SEARCH_STUDENTS    = '/users/students';
-export const SEARCH_TEACHERS    = '/users/teachers';
-export const SEARCH_COMPANY_LEADER_ID = '/companies/leader';
+export const SEARCH_ALL                 = '/users/all';
+export const SEARCH_BY_USERNAME         = '/users/login';
+export const SEARCH_STUDENTS            = '/users/students';
+export const SEARCH_TEACHERS            = '/users/teachers';
+export const SEARCH_COMPANY_LEADER_ID   = '/companies/leader';
+export const SEARCH_ALL_LOANS           = '/loan/all';
+export const SEARCH_MAX_VALUE_LOAN      = '/loan/max';
+export const SEARCH_LOAN                = '/loan/options';
 
 
 //list
@@ -23,7 +27,7 @@ export const LIST_ALL_PRODUCTS          = '/products/all';
  
 
 //delete
-export const DELETE_USER          = '/users/delete';
+export const DELETE_USER                = '/users/delete';
 
 
 

@@ -136,7 +136,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Valor total</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">RS 10000,00 </h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ maxValueLoan.totalValue }} </h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-danger">0.12% <span class="text-black ml-1"><small>(Ultimos
@@ -149,7 +149,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Valor parcela</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 10000,00 </h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ `R$ ${maxValueLoan.parcel.toFixed(2).replace(".",",")}` }} </h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-success">50.0% <span class="text-black ml-1"><small>(Capacidade restante)</small></span></p> -->
@@ -161,7 +161,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Juros</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">10 %</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ `${maxValueLoan.interest}%` }}</h3>
                                         <i class="ti-package icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <p class="mb-0 mt-2 text-success">Ao ano<span
@@ -174,7 +174,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Rodada pedido</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">Rodada: X</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ `Rodada: ${maxValueLoan.startRound}` }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-success">23.00%<span class="text-black ml-1"><small>(30
@@ -188,7 +188,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Parcelas restantes</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">3 <span>parcelas</span></h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ maxValueLoan.parcelQtt }} <span>parcelas</span></h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-success">23.00%<span class="text-black ml-1"><small>(30
@@ -198,9 +198,7 @@
                         </div>
 
 
-                        <div class="col-12"></div>
-
-                         <div class="col-md-6 grid-margin stretch-card">
+                         <div class="col-md-9 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Pedir empréstimo</h4>
@@ -215,16 +213,46 @@
                                      <option>Logistica</option>
                                     <option>Infraestrutura</option>
                                    </select> -->
-                                   <input type="text" class="form-control" placeholder="Valor" aria-label="valorEMprestimo">
+                                   <input type="text" class="form-control" placeholder="Valor" aria-label="valorEMprestimo" @keyup="verifyLoanValue($event)">
                                </div>
                                         <div class="my-3">
-                                            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="hire($event)">PEDIR EMPRESTIMO</button>
+                                            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="newLoad($event)" v-show="!loan.isRegistering" v-bind:disabled="buttonDisabled">PEDIR EMPRESTIMO</button>
+                                            <img v-show="loan.isRegistering" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                        </div>          
+                        </div>
 
+                        <div class = "col-md-12 grid-margin stretch-card">
+                            <div class = "card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Empréstimos realizados</h4>
+                                    <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center" v-show = "!loan.loans.length > 0">
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" v-show = "!loan.loans.length > 0">Não há registro de empréstimos.</h3>
+                                    </div>
+
+                                     <table  class = "table" v-show = "loan.loans.length > 0">
+                                        <thead class = "btn-primary" style = "height: 60px !important;">
+                                            <tr class = "text-center" style = "height: 60px !important;">
+                                                <th> Rodada             </th>
+                                                <th> Valor Empréstimo   </th>
+                                                <th> Quantidade Parcelas</th>
+                                                <th> Juros Ano          </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody  v-for="item in loan.loans">
+                                            <tr class = "text-center">
+                                                <td> {{ item.startRound     }} </td>
+                                                <td> {{ item.totalValue     }} </td>
+                                                <td> {{ item.parcelQtt      }} </td>
+                                                <td> {{ item.interest       }} </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!-- content-wrapper ends -->
@@ -245,32 +273,47 @@
 </template>
 
 <script>
+
+import { mapState, mapActions } from 'vuex'
+
 export default {
-    data: () => {
+    data() {
         return {
-            selectedRemoveValue: 0,
-            selectedAddValue: 0,
-            selectedBuyValue: 0,
-            totalCapacity: 1200,
-            availableCapacity: 1000,
-            usedCapacity: 200
+           buttonDisabled: true,
+           valueLoan     : 0,
         }
     },
+
+    async beforeCreate() {
+        await this.$store.dispatch('loan/LIST_MAX_VALUE_LOAN')
+        await this.$store.dispatch('loan/LIST_ALL_LOANS')
+    },
+
+    computed: {
+        ...mapState({
+            alert           : state => state.alert,
+            maxValueLoan    : state => state.loan.maxValueLoan,
+            loan            : state => state.loan,
+        })
+    },
+
     methods: {
-        addValue: function (event) {
-            if (event) event.preventDefault()
-            this.totalCapacity = parseInt(this.totalCapacity) + parseInt(this.selectedAddValue)
-            this.availableCapacity = parseInt(this.availableCapacity) + parseInt(this.selectedAddValue)
-            this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
+        
+        ...mapActions('loan', ['REGISTER_NEW_LOAN']),
+
+        verifyLoanValue(event) {           
+            const { maxValueLoan } = this;
+            event.target.value > maxValueLoan.totalValue || !event.target.value ? this.valueLoan = 0 : this.valueLoan = event.target.value;
+            event.target.value > maxValueLoan.totalValue || !event.target.value ? this.buttonDisabled = true : this.buttonDisabled = false;
         },
-        removeValue: function (event) {
+
+        newLoad(event) {
+            console.log("MAP", mapActions)
+            const { valueLoan } = this;
+
             if (event) event.preventDefault()
-            this.totalCapacity = parseInt(this.totalCapacity) - parseInt(this.selectedRemoveValue)
-            this.availableCapacity = parseInt(this.availableCapacity) - parseInt(this.selectedRemoveValue)
-            this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
-        },
-        fixDummyError: function (event) { 
-            if (event) event.preventDefault()
+
+            this.REGISTER_NEW_LOAN({ valueLoan });
         }
     }
 }
