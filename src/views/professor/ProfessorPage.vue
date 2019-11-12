@@ -50,57 +50,15 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="/">
-                            <i class="ti-dashboard menu-icon"></i>
+                        <a class="nav-link" href="/dashboard-professor">
+                            <i class="ti-flag-alt menu-icon"></i>
                             <span class="menu-title">Visão Geral</span>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/armazem">
-                            <i class="ti-package menu-icon"></i>
-                            <span class="menu-title">Armazem</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/produto">
-                            <i class="ti-mobile menu-icon"></i>
-                            <span class="menu-title">Produto</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/equipe">
-                            <i class="ti-user menu-icon"></i>
-                            <span class="menu-title">Equipe</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/fornecedor">
-                            <i class="ti-truck menu-icon"></i>
-                            <span class="menu-title">Fornecedor</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/mercado">
-                            <i class="ti-shopping-cart-full menu-icon"></i>
-                            <span class="menu-title">Mercado</span>
-                        </a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="/venda">
-                            <i class="ti-money menu-icon"></i>
-                            <span class="menu-title">Venda</span>
-                        </a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="/emprestimo">
-                            <i class="ti-credit-card menu-icon"></i>
-                            <span class="menu-title">Emprestimo</span>
-                        </a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="/historico">
-                            <i class="ti-receipt menu-icon"></i>
-                            <span class="menu-title">Historico</span>
+                        <a class="nav-link" href="/cadastro-lider">
+                            <i class="ti-pencil-alt menu-icon"></i>
+                            <span class="menu-title">Cadastrar Lider</span>
                         </a>
                     </li>
                 </ul>
@@ -112,16 +70,26 @@
                         <div class="col-md-12 grid-margin">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div>
-                                    <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard > Histórico</span>
+                                    <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard  </span>
                                 </div>
                                 <div>
                                     <h4 class="font-weight-bold mb-0">SELECIONE RODADA:</h4>
                                         <div class="form-group">
                                             <select class="form-control form-control-sm" id="exampleFormControlSelect3">
-                                                <option>1</option>
+                                                <option selected>1</option>
                                                 <option>2</option>
                                                 <option>3</option>
                                                 <option>4</option>
+                                            </select>
+                                        </div> 
+                                </div>
+                                 <div>
+                                    <h4 class="font-weight-bold mb-0">SELECIONE A EMPRESA:</h4>
+                                        <div class="form-group">
+                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3">
+                                                <option selected>Alfa</option>
+                                                <option>Optimus</option>
+                                                <option>Fatec</option>
                                             </select>
                                         </div> 
                                 </div>

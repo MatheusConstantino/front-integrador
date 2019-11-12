@@ -16,6 +16,7 @@ import CadastroLider from '../views/cadastrolider/CadastroLider'
 import Emprestimo from '../views/emprestimo/Emprestimo'
 import Venda from '../views/venda/Vendas'
 import Historico from '../views/historico/Historico'
+import Professor from '../views/professor/ProfessorPage'
 
 import { getUserLocalStorage } from './localstorage/LocalStorage';
 
@@ -42,6 +43,7 @@ export const router = new Router({
     {path: '/emprestimo', component: Emprestimo},
     {path: '/venda', component: Venda},
     {path: '/historico', component: Historico},
+    {path: '/dashboard-professor', component: Professor},
     { path: '*', redirect: '/'                                      }
   ]
 });

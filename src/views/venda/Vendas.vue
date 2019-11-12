@@ -119,11 +119,9 @@
                                     <h4 class="font-weight-bold mb-0">SELECIONE PRODUTO:</h4>
                                     <p>
                                         <div class="form-group">
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
+                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3" @change="changeProduct">
+                                                <option disabled selected> Selecione um Produto</option>
+                                                <option v-for="(value, index) in product.products"  :key="index"> {{ index+1 }}</option>
                                             </select>
                                         </div>
                                 </div>
@@ -136,7 +134,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Produto</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">Nome Produto </h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" v-bind:selected="$index === 0 ? true : false">{{ produto.productType }}</h3>
                                         <i class="ti-mobile icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-danger">0.12% <span class="text-black ml-1"><small>(Ultimos
@@ -201,32 +199,33 @@
 </template>
 
 <script>
-export default {
-    data: () => {
+import { mapState, mapActions } from 'vuex'
+
+export default { 
+    data () {
         return {
-            selectedRemoveValue: 0,
-            selectedAddValue: 0,
-            selectedBuyValue: 0,
-            totalCapacity: 1200,
-            availableCapacity: 1000,
-            usedCapacity: 200
+           produto: {}
         }
+        
     },
+
+    beforeCreate() {
+        this.$store.dispatch('LIST_ALL_PRODUCTS')
+    },
+
+    computed: {
+        ...mapState({
+            alert   : state => state.alert,
+            product : state => state.products
+        })
+    },
+
     methods: {
-        addValue: function (event) {
-            if (event) event.preventDefault()
-            this.totalCapacity = parseInt(this.totalCapacity) + parseInt(this.selectedAddValue)
-            this.availableCapacity = parseInt(this.availableCapacity) + parseInt(this.selectedAddValue)
-            this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
-        },
-        removeValue: function (event) {
-            if (event) event.preventDefault()
-            this.totalCapacity = parseInt(this.totalCapacity) - parseInt(this.selectedRemoveValue)
-            this.availableCapacity = parseInt(this.availableCapacity) - parseInt(this.selectedRemoveValue)
-            this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
-        },
-        fixDummyError: function (event) { 
-            if (event) event.preventDefault()
+
+        changeProduct() {
+            console.log("", this.product)
+            this.produto = this.product.products[event.target.value]
+            debugger
         }
     }
 }
