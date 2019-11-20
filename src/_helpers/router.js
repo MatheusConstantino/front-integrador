@@ -17,6 +17,7 @@ import Emprestimo from '../views/emprestimo/Emprestimo'
 import Venda from '../views/venda/Vendas'
 import Historico from '../views/historico/Historico'
 import Professor from '../views/professor/ProfessorPage'
+import ContratoIncial from '../views/contratacaoinicial/contratacaoInicial'
 
 import { getUserLocalStorage } from './localstorage/LocalStorage';
 
@@ -44,6 +45,7 @@ export const router = new Router({
     {path: '/venda', component: Venda},
     {path: '/historico', component: Historico},
     {path: '/dashboard-professor', component: Professor},
+    {path: '/contrato-inicial', component: ContratoIncial},
     { path: '*', redirect: '/'                                      }
   ]
 });
