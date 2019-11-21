@@ -39,9 +39,9 @@ export const router = new Router({
     { path: '/login',               component: LoginPage            },
     { path: '/escolhe-regiao',      component: CadastroRegiao       },
     { path: '/cadastro-lider',      component: CadastroLider        },
-    {path: '/emprestimo', component: Emprestimo},
-    {path: '/venda', component: Venda},
-    {path: '/historico', component: Historico},
+    { path: '/emprestimo',          component: Emprestimo           },
+    { path: '/venda',               component: Venda                },
+    { path: '/historico',           component: Historico            },
     { path: '*', redirect: '/'                                      }
   ]
 });

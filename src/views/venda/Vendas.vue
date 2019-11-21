@@ -115,23 +115,12 @@
                                 <div>
                                     <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard > Venda</span>
                                 </div>
-                                <div>
-                                    <h4 class="font-weight-bold mb-0">SELECIONE PRODUTO:</h4>
-                                    <p>
-                                        <div class="form-group">
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3">
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
-                                        </div>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-3 grid-margin stretch-card">
+                        <!-- <div class="col-md-3 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Produto</p>
@@ -139,47 +128,81 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">Nome Produto </h3>
                                         <i class="ti-mobile icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <!-- <p class="mb-0 mt-2 text-danger">0.12% <span class="text-black ml-1"><small>(Ultimos
-                                                30 dias)</small></span></p> -->
+
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12"></div>
-                        <div class="col-md-6 grid-margin stretch-card">
+                        <div class="col-12"></div> -->
+                        <div class="col-md-12 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Vender produto</h4>
-                                    <p class="card-description">
-                                    </p>
+                                    <p class="card-description"></p>
+                                    
                                     <form action="#" method="post">
-                              <div class="form-group">
-                                   <label for="exampleFormControlSelect2">Quantidade</label>
-                                   <!-- <select class="form-control" id="exampleFormControlSelect2" v-model="selectedTeamCount">
-                                     <option>A</option>
-                                     <option>B</option>
-                                     <option>C</option>
-                                     <option>D</option>
-                                   </select> -->
-                                   <input type="text" class="form-control" placeholder="Quantidade" aria-label="quantidadeVenda">
-                           </div>
-                              <div class="form-group">
-                                   <label for="exampleFormControlSelect2">Valor da venda</label>
-                                   <!-- <select class="form-control" id="exampleFormControlSelect2">
-                                   <option>SELECIONE</option>
-                                    <option>Comercial</option>
-                                     <option>Logistica</option>
-                                    <option>Infraestrutura</option>
-                                   </select> -->
-                                   <input type="text" class="form-control" placeholder="Valor" aria-label="valorVenda">
-                               </div>
+                                        <div class ="row">
+                                            <div class ="col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect2">Selecione um tipo de Produto</label>
+                                                    <select class="form-control" id="exampleFormControlSelect3" @change="changeProduct">
+                                                        <option disabled selected> Selecione um Produto</option>
+                                                        <option :value="value.id" class="form-control" v-for="(value, index) in product.products"  :key="index"> {{ value.productType }}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class = "col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect2">Quantidade do Produto</label>
+                                                    <input type="text" class="form-control" placeholder="Valor" aria-label="valorVenda" v-model="quantidade">
+                                                </div>
+                                            </div>
+
+                                            <div class = "col-md-4">
+                                                <div class="form-group">
+                                                    <label for="exampleFormControlSelect2">Valor da venda</label>
+                                                    <input type="text" class="form-control" placeholder="Valor" aria-label="valorVenda" v-model="preco">
+                                                </div>
+                                            </div>
+                                        </div>
+                              
                                         <div class="my-3">
-                                            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="hire($event)">VENDER</button>
+                                            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="registerProductSale($event)" :disabled="sales.isRegistering" v-show="!sales.isRegistering">VENDER</button>
+                                            <img v-show="sales.isRegistering" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                        </div>                         
+                        </div> 
 
+                        <div class = "col-md-12 grid-margin stretch-card">
+                            <div class = "card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Produtos à venda</h4>
+                                    <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center" v-show = "!produtosVenda.length > 0">
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" v-show = "!produtosVenda.length > 0">Não há registro de produtos a venda.</h3>
+                                    </div>
+
+                                     <table  class = "table" v-show = "produtosVenda.length > 0">
+                                        <thead class = "btn-primary" style = "height: 60px !important;">
+                                            <tr class = "text-center" style = "height: 60px !important;">
+                                                <th> Produto            </th>
+                                                <th> Quantidade         </th>
+                                                <th> Preço              </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody  v-for="">
+                                            <tr class = "text-center">
+                                                <td> {{ }} </td>
+                                                <td> {{ }} </td>
+                                                <td> {{ }} </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>                       
 
                     </div>
                 </div>
@@ -201,33 +224,71 @@
 </template>
 
 <script>
-export default {
-    data: () => {
-        return {
-            selectedRemoveValue: 0,
-            selectedAddValue: 0,
-            selectedBuyValue: 0,
-            totalCapacity: 1200,
-            availableCapacity: 1000,
-            usedCapacity: 200
-        }
-    },
-    methods: {
-        addValue: function (event) {
-            if (event) event.preventDefault()
-            this.totalCapacity = parseInt(this.totalCapacity) + parseInt(this.selectedAddValue)
-            this.availableCapacity = parseInt(this.availableCapacity) + parseInt(this.selectedAddValue)
-            this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
+
+    import { mapState, mapActions } from 'vuex'
+
+    export default {
+        data () {
+            return {
+                quantidade: undefined,
+                tipo: undefined,
+                preco: undefined,
+                produto: {},
+                produtosVenda: [],
+            }
         },
-        removeValue: function (event) {
-            if (event) event.preventDefault()
-            this.totalCapacity = parseInt(this.totalCapacity) - parseInt(this.selectedRemoveValue)
-            this.availableCapacity = parseInt(this.availableCapacity) - parseInt(this.selectedRemoveValue)
-            this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
+
+        computed: {
+            ...mapState({
+                alert   : state => state.alert,
+                product : state => state.products,
+                sales   : state => state.sales
+            })
         },
-        fixDummyError: function (event) { 
-            if (event) event.preventDefault()
+        
+        beforeCreate() {
+            
+            this.$store.dispatch('LIST_ALL_PRODUCTS')
+        
+        },
+        
+        methods: {
+
+            ...mapActions('sales', ['CREATE_NEW_SALE']),
+
+            changeProduct() {
+                this.produto = this.product.products[event.target.value]
+                this.tipo = event.target.value 
+            },
+
+            registerProductSale(event) {
+
+                const { quantidade, tipo, preco } = this;
+                debugger
+                if (event) event.preventDefault()
+                
+                if(quantidade != undefined && tipo != undefined && preco != undefined) {
+
+                    this.CREATE_NEW_SALE(quantidade, preco, tipo)
+                    
+                }
+            }
+
+           /*  addValue: function (event) {
+                if (event) event.preventDefault()
+                this.totalCapacity = parseInt(this.totalCapacity) + parseInt(this.selectedAddValue)
+                this.availableCapacity = parseInt(this.availableCapacity) + parseInt(this.selectedAddValue)
+                this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
+            },
+            removeValue: function (event) {
+                if (event) event.preventDefault()
+                this.totalCapacity = parseInt(this.totalCapacity) - parseInt(this.selectedRemoveValue)
+                this.availableCapacity = parseInt(this.availableCapacity) - parseInt(this.selectedRemoveValue)
+                this.usedCapacity = parseInt(this.totalCapacity) - parseInt(this.availableCapacity)
+            },
+            fixDummyError: function (event) { 
+                if (event) event.preventDefault()
+            } */
         }
     }
-}
 </script>

@@ -28,6 +28,7 @@ const mutations = {
         state.type = null;
         state.message = null;
     }
+    
 };
 
 export const alert = {

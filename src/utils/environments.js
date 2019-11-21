@@ -8,6 +8,7 @@ export const REGISTER_LIDER     = '/users/new-leader';
 export const REGISTER_MEMBER    = '/users/new-member';
 export const REGISTER_COMPANY   = '/companies/new';
 export const REGISTER_NEW_LOAN  = '/loan/new';
+export const REGISTER_NEW_SALE  = '/sale/new'
 
 
 //search
@@ -19,7 +20,10 @@ export const SEARCH_COMPANY_LEADER_ID   = '/companies/leader';
 export const SEARCH_ALL_LOANS           = '/loan/all';
 export const SEARCH_MAX_VALUE_LOAN      = '/loan/max';
 export const SEARCH_LOAN                = '/loan/options';
-
+export const MARKET_COTATION_DOLLAR     = '/market-cotations/dolar';
+export const MARKET_COTATION_INFLATION  = '/market-cotations/inflation';
+export const MARKET_LIMITS_MONTHLY      = '/market-limits/monthly';
+export const MARKET_LIMITS_YEARLY       = '/market-limits/yearly';
 
 //list
 export const LIST_ALL_MEMBERS_COMPANY   = '/companies/company-members';

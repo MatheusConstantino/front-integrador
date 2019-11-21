@@ -116,7 +116,7 @@ export default {
     computed: {
         ...mapState({
             alert   : state => state.alert,
-            company : state => state.company
+            user    : state => state.user
         })
     },
 
