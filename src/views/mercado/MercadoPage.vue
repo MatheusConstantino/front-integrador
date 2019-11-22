@@ -127,8 +127,7 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.demandYearly }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <!-- <p class="mb-0 mt-2 text-danger">0.12% <span class="text-black ml-1"><small>(Ultimos
-                                                30 dias)</small></span></p> -->
+
                                 </div>
                             </div>
                         </div>
@@ -141,7 +140,6 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.demandMonthly }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <!-- <p class="mb-0 mt-2 text-success">50.0% <span class="text-black ml-1"><small>(Capacidade restante)</small></span></p> -->
                                 </div>
                             </div>
                         </div>
@@ -154,8 +152,7 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.cotationInflation ? market.cotationInflation : 'X.X' }}%</h3>
                                         <i class="ti-bar-chart-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <!-- <p class="mb-0 mt-2 text-success">64.00%<span
-                                            class="text-black ml-1"><small>(Capacidade restante)</small></span></p> -->
+
                                 </div>
                             </div>
                         </div>
@@ -168,27 +165,19 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.cotationDollar }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <!-- <p class="mb-0 mt-2 text-success">64.00%<span
-                                            class="text-black ml-1"><small>(Capacidade restante)</small></span></p> -->
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12"></div>
-                        <div class="col-md-3 grid-margin stretch-card">
+                        <!-- <div class="col-md-3 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Pesquisa Demanda Anual</h4>
                                     <p class="card-description">
                                     </p>
-                                    <!-- <form action="#" method="post">
-                                    <div class="input-group">
-                                            <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchAnnualDemand }}<span class="text-black ml-1"><small></small></span></p></span>
-                                            </div>
-                                            <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">PESQUISAR</button>
-                                            </div>  
-                                    </form> -->
+
                                     <form action="#" method="">
                                     <div class="input-group">
                                             <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchAnnualDemand }}<span class="text-black ml-1"><small></small></span></p></span>
@@ -209,14 +198,7 @@
                                     <h4 class="card-title">Pesquisa Demanda Mensal</h4>
                                     <p class="card-description">
                                     </p>
-                                    <!-- <form action="#" method="post">
-                                    <div class="input-group">
-                                            <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchMonthlyDemand }}<span class="text-black ml-1"><small></small></span></p></span>
-                                            </div>
-                                            <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="" v-on:click="getPriceMonthlyDemand">PESQUISAR</button>
-                                            </div>  
-                                    </form> -->
+
                                     <form action="#" method="">
                                     <div class="input-group">
                                             <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchMonthlyDemand }}<span class="text-black ml-1"><small></small></span></p></span>
@@ -236,14 +218,7 @@
                                     <h4 class="card-title">Pesquisa Inflação do mercado</h4>
                                     <p class="card-description">
                                     </p>
-                                    <!-- <form action="#" method="post">
-                                    <div class="input-group">
-                                            <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchMonetaryInflation }}<span class="text-black ml-1"><small></small></span></p></span>
-                                            </div>
-                                            <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">PESQUISAR</button>
-                                            </div>  
-                                    </form> -->
+
                                     <form action="#" method="">
                                     <div class="input-group">
                                             <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchMonetaryInflation }}<span class="text-black ml-1"><small></small></span></p></span>
@@ -262,14 +237,7 @@
                                     <h4 class="card-title">Pesquisa Cotação Dólar</h4>
                                     <p class="card-description">
                                     </p>
-                                    <!-- <form action="#" method="post">
-                                    <div class="input-group">
-                                            <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchDollarCotation }}<span class="text-black ml-1"><small></small></span></p></span>
-                                            </div>
-                                            <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">PESQUISAR</button>
-                                            </div>  
-                                    </form> -->
+
                                     <form action="#" method="">
                                     <div class="input-group">
                                             <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchDollarCotation }}<span class="text-black ml-1"><small></small></span></p></span>
@@ -288,14 +256,7 @@
                                     <h4 class="card-title">Pesquisa Preço Médio dos Concorrentes</h4>
                                     <p class="card-description">
                                     </p>
-                                    <!-- <form action="#" method="post">
-                                    <div class="input-group">
-                                            <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchPriceConcurrent }}<span class="text-black ml-1"><small></small></span></p></span>
-                                            </div>
-                                            <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">PESQUISAR</button>
-                                            </div>  
-                                    </form> -->
+
                                     <form action="#" method="">
                                     <div class="input-group">
                                             <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchPriceConcurrent }}<span class="text-black ml-1"><small></small></span></p></span>
@@ -306,8 +267,8 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
-
+                        </div> -->
+ 
 
                     </div>
                 </div>
