@@ -5,7 +5,6 @@ import { requestHandlerError, closeURL } from "../../_helpers/axios-connection/a
 export const listAllProducts = () => {
     return  closeURL.get(`${LIST_ALL_PRODUCTS}`)
     .then((onValue) => {
-        debugger
         return Promise.resolve(onValue.data);
     })
     .catch((onError) => {

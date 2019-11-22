@@ -124,11 +124,10 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Demanda anual</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ cards.annualDemand }}</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.demandYearly }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <!-- <p class="mb-0 mt-2 text-danger">0.12% <span class="text-black ml-1"><small>(Ultimos
-                                                30 dias)</small></span></p> -->
+
                                 </div>
                             </div>
                         </div>
@@ -138,10 +137,9 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Demanda mensal</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ cards.monthlyDemand }}</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.demandMonthly }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <!-- <p class="mb-0 mt-2 text-success">50.0% <span class="text-black ml-1"><small>(Capacidade restante)</small></span></p> -->
                                 </div>
                             </div>
                         </div>
@@ -151,11 +149,10 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Inflação</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ cards.inflation }}</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.cotationInflation ? market.cotationInflation : 'X.X' }}%</h3>
                                         <i class="ti-bar-chart-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <!-- <p class="mb-0 mt-2 text-success">64.00%<span
-                                            class="text-black ml-1"><small>(Capacidade restante)</small></span></p> -->
+
                                 </div>
                             </div>
                         </div>
@@ -165,30 +162,22 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Cotação dólar</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ cards.dollarCotation }}</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.cotationDollar }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <!-- <p class="mb-0 mt-2 text-success">64.00%<span
-                                            class="text-black ml-1"><small>(Capacidade restante)</small></span></p> -->
+
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-12"></div>
-                        <div class="col-md-3 grid-margin stretch-card">
+                        <!-- <div class="col-md-3 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
                                     <h4 class="card-title">Pesquisa Demanda Anual</h4>
                                     <p class="card-description">
                                     </p>
-                                    <!-- <form action="#" method="post">
-                                    <div class="input-group">
-                                            <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchAnnualDemand }}<span class="text-black ml-1"><small></small></span></p></span>
-                                            </div>
-                                            <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">PESQUISAR</button>
-                                            </div>  
-                                    </form> -->
+
                                     <form action="#" method="">
                                     <div class="input-group">
                                             <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchAnnualDemand }}<span class="text-black ml-1"><small></small></span></p></span>
@@ -209,14 +198,7 @@
                                     <h4 class="card-title">Pesquisa Demanda Mensal</h4>
                                     <p class="card-description">
                                     </p>
-                                    <!-- <form action="#" method="post">
-                                    <div class="input-group">
-                                            <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchMonthlyDemand }}<span class="text-black ml-1"><small></small></span></p></span>
-                                            </div>
-                                            <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="" v-on:click="getPriceMonthlyDemand">PESQUISAR</button>
-                                            </div>  
-                                    </form> -->
+
                                     <form action="#" method="">
                                     <div class="input-group">
                                             <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchMonthlyDemand }}<span class="text-black ml-1"><small></small></span></p></span>
@@ -236,14 +218,7 @@
                                     <h4 class="card-title">Pesquisa Inflação do mercado</h4>
                                     <p class="card-description">
                                     </p>
-                                    <!-- <form action="#" method="post">
-                                    <div class="input-group">
-                                            <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchMonetaryInflation }}<span class="text-black ml-1"><small></small></span></p></span>
-                                            </div>
-                                            <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">PESQUISAR</button>
-                                            </div>  
-                                    </form> -->
+
                                     <form action="#" method="">
                                     <div class="input-group">
                                             <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchMonetaryInflation }}<span class="text-black ml-1"><small></small></span></p></span>
@@ -262,14 +237,7 @@
                                     <h4 class="card-title">Pesquisa Cotação Dólar</h4>
                                     <p class="card-description">
                                     </p>
-                                    <!-- <form action="#" method="post">
-                                    <div class="input-group">
-                                            <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchDollarCotation }}<span class="text-black ml-1"><small></small></span></p></span>
-                                            </div>
-                                            <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">PESQUISAR</button>
-                                            </div>  
-                                    </form> -->
+
                                     <form action="#" method="">
                                     <div class="input-group">
                                             <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchDollarCotation }}<span class="text-black ml-1"><small></small></span></p></span>
@@ -288,14 +256,7 @@
                                     <h4 class="card-title">Pesquisa Preço Médio dos Concorrentes</h4>
                                     <p class="card-description">
                                     </p>
-                                    <!-- <form action="#" method="post">
-                                    <div class="input-group">
-                                            <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchPriceConcurrent }}<span class="text-black ml-1"><small></small></span></p></span>
-                                            </div>
-                                            <div class="my-3">
-                                                <button type="submit" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">PESQUISAR</button>
-                                            </div>  
-                                    </form> -->
+
                                     <form action="#" method="">
                                     <div class="input-group">
                                             <span class="text-black ml-1"><small>Preço da pesquisa: </small><p class="mb-0 mt-2 text-success">{{ prices.priceSearchPriceConcurrent }}<span class="text-black ml-1"><small></small></span></p></span>
@@ -306,8 +267,8 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
-
+                        </div> -->
+ 
 
                     </div>
                 </div>
@@ -351,49 +312,89 @@ export default {
         }
       }
     },
+
+    async beforeCreate() {
+
+        Promise.all([
+            await this.$store.dispatch('market/COTATION_INFLATION'),
+            await this.$store.dispatch('market/COTATION_DOLLAR'),
+            await this.$store.dispatch('market/DEMAND_MONTHLY'),
+            await this.$store.dispatch('market/DEMAND_YEARLY')
+        ]);
+    },
+
+    computed: {
+        ...mapState({
+            alert   : state => state.alert,
+            market  : state => state.market,
+        })
+    },
+
+
     methods: {
-      getPriceAnnualDemand() {
-        return (swal({
-          title: "Valor da demanda anual",
-          text: "R$ 90.000.000",
-          icon: 'success',
-          className: 'swal-footer'
-        }))
-      },
-      getPriceMonthlyDemand() {
-        return (swal({
-          title: "Valor da demanda mensal",
-          text: "R$ 5.000.000",
-          icon: 'success',
-          className: 'swal-footer'
-        }))
-      },
-      getMonetaryInflation() {
-        return (swal({
-          title: "Valor da inflação",
-          text: "0.35 %",
-          icon: 'warning',
-          dangerMode: true,
-          className: 'swal-footer'
-        }))
-      },
-      getDollarCotation() {
-        return (swal({
-          title: "Valor da cotação do dólar",
-          text: "R$ 4.50",
-          icon: 'warning',
-          dangerMode: true,
-          className: 'swal-footer'
-        }))
-      },
-      getMediumPriceConcurrent() {
-        return (swal({
-          title: "Valor do preço médio do concorrente",
-          text: "R$ 3.500",
-          icon: 'success',
-          className: 'swal-footer'
-        }))
-      }
+        
+        ...mapActions('market', ['COTATION_INFLATION', 'COTATION_DOLLAR', 'DEMAND_MONTHLY', 'DEMAND_YEARLY']),
+
+        getPriceAnnualDemand() {
+
+            this.DEMAND_YEARLY()
+
+            return ( swal ({
+                title: "Valor da demanda anual",
+                text: `R$ ${this.market.demandYearly}`,
+                icon: 'success',
+                className: 'swal-footer'
+            }))
+        },
+        
+        getPriceMonthlyDemand() {
+            
+            this.DEMAND_MONTHLY()
+           
+            return (swal({
+            title: "Valor da demanda mensal",
+            text: `R$ ${this.market.demandMonthly}`,
+            icon: 'success',
+            className: 'swal-footer'
+            }))
+
+        },
+        
+        getMonetaryInflation() {
+            
+            this.COTATION_INFLATION()
+            
+            return (swal({
+                title: "Valor da inflação",
+                text: this.market.cotationInflation.toString(),
+                icon: 'success',
+                dangerMode: true,
+                className: 'swal-footer'
+            }))
+
+        },
+        
+        getDollarCotation() {
+        
+            this.COTATION_DOLLAR()
+            
+            return (swal({
+                title: "Valor da cotação do dólar",
+                text: this.market.cotationDollar.toString(),
+                icon: 'success',
+                dangerMode: true,
+                className: 'swal-footer'
+            }))
+        },
+
+        getMediumPriceConcurrent() {
+            return (swal({
+            title: "Valor do preço médio do concorrente",
+            text: "R$ 3.500",
+            icon: 'success',
+            className: 'swal-footer'
+            }))
+        }
   }
 }
 </script>
