@@ -76,6 +76,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/erb">
+                            <i class="ti-signal menu-icon"></i>
+                            <span class="menu-title">ERB</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pa">
+                            <i class="ti-signal menu-icon"></i>
+                            <span class="menu-title">PA</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/fornecedor">
                             <i class="ti-truck menu-icon"></i>
                             <span class="menu-title">Fornecedor</span>

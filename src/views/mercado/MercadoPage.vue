@@ -74,6 +74,18 @@
                         </a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/erb">
+                            <i class="ti-signal menu-icon"></i>
+                            <span class="menu-title">ERB</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/pa">
+                            <i class="ti-signal menu-icon"></i>
+                            <span class="menu-title">PA</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/fornecedor">
                             <i class="ti-truck menu-icon"></i>
                             <span class="menu-title">Fornecedor</span>
@@ -127,7 +139,7 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.demandYearly }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-
+  <a onclick="demanda_anual()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
                                 </div>
                             </div>
                         </div>
@@ -140,6 +152,7 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.demandMonthly }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
+                                     <a onclick="demanda_mensal()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +165,7 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.cotationInflation ? market.cotationInflation : 'X.X' }}%</h3>
                                         <i class="ti-bar-chart-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-
+ <a onclick="mercado()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +178,7 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.cotationDollar }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-
+ <a onclick="dolar()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
                                 </div>
                             </div>
                         </div>
@@ -291,110 +304,125 @@
 </template>
 
 <script>
-  import { mapState, mapActions } from 'vuex'
-  import swal from 'sweetalert'
-
-export default {
-    data () {
-      return {
-        prices: {
-          priceSearchAnnualDemand : 'R$ 15.000,00',
-          priceSearchMonthlyDemand : 'R$ 15.000,00',
-          priceSearchMonetaryInflation : 'R$ 7.500,00',
-          priceSearchDollarCotation :  'R$ 7.500,00',
-          priceSearchPriceConcurrent : 'R$ 19.000,00'
-        },
-        cards: {
-          annualDemand: 'R$ XXXX,XX',
-          monthlyDemand: 'R$ XXXXX,XX',
-          inflation: 'X.X %',
-          dollarCotation: 'R$ X.XX' 
-        }
-      }
-    },
-
-    async beforeCreate() {
-
-        Promise.all([
-            await this.$store.dispatch('market/COTATION_INFLATION'),
-            await this.$store.dispatch('market/COTATION_DOLLAR'),
-            await this.$store.dispatch('market/DEMAND_MONTHLY'),
-            await this.$store.dispatch('market/DEMAND_YEARLY')
-        ]);
-    },
-
-    computed: {
-        ...mapState({
-            alert   : state => state.alert,
-            market  : state => state.market,
-        })
-    },
 
 
-    methods: {
+                    function demanda_anual() {
+                        $("#da").toggle();
+                    }
+                    function demanda_mensal() {
+                        $("#dm").toggle();
+                    }
+                    function mercado() {
+                        $("#in").toggle();
+                    }
+                    function dolar() {
+                        $("#cd").toggle();
+                    }
+
+//   import { mapState, mapActions } from 'vuex'
+//   import swal from 'sweetalert'
+
+// export default {
+//     data () {
+//       return {
+//         prices: {
+//           priceSearchAnnualDemand : 'R$ 15.000,00',
+//           priceSearchMonthlyDemand : 'R$ 15.000,00',
+//           priceSearchMonetaryInflation : 'R$ 7.500,00',
+//           priceSearchDollarCotation :  'R$ 7.500,00',
+//           priceSearchPriceConcurrent : 'R$ 19.000,00'
+//         },
+//         cards: {
+//           annualDemand: 'R$ XXXX,XX',
+//           monthlyDemand: 'R$ XXXXX,XX',
+//           inflation: 'X.X %',
+//           dollarCotation: 'R$ X.XX' 
+//         }
+//       }
+//     },
+
+//     async beforeCreate() {
+
+//         Promise.all([
+//             await this.$store.dispatch('market/COTATION_INFLATION'),
+//             await this.$store.dispatch('market/COTATION_DOLLAR'),
+//             await this.$store.dispatch('market/DEMAND_MONTHLY'),
+//             await this.$store.dispatch('market/DEMAND_YEARLY')
+//         ]);
+//     },
+
+//     computed: {
+//         ...mapState({
+//             alert   : state => state.alert,
+//             market  : state => state.market,
+//         })
+//     },
+
+
+//     methods: {
         
-        ...mapActions('market', ['COTATION_INFLATION', 'COTATION_DOLLAR', 'DEMAND_MONTHLY', 'DEMAND_YEARLY']),
+//         ...mapActions('market', ['COTATION_INFLATION', 'COTATION_DOLLAR', 'DEMAND_MONTHLY', 'DEMAND_YEARLY']),
 
-        getPriceAnnualDemand() {
+//         getPriceAnnualDemand() {
 
-            this.DEMAND_YEARLY()
+//             this.DEMAND_YEARLY()
 
-            return ( swal ({
-                title: "Valor da demanda anual",
-                text: `R$ ${this.market.demandYearly}`,
-                icon: 'success',
-                className: 'swal-footer'
-            }))
-        },
+//             return ( swal ({
+//                 title: "Valor da demanda anual",
+//                 text: `R$ ${this.market.demandYearly}`,
+//                 icon: 'success',
+//                 className: 'swal-footer'
+//             }))
+//         },
         
-        getPriceMonthlyDemand() {
+//         getPriceMonthlyDemand() {
             
-            this.DEMAND_MONTHLY()
+//             this.DEMAND_MONTHLY()
            
-            return (swal({
-            title: "Valor da demanda mensal",
-            text: `R$ ${this.market.demandMonthly}`,
-            icon: 'success',
-            className: 'swal-footer'
-            }))
+//             return (swal({
+//             title: "Valor da demanda mensal",
+//             text: `R$ ${this.market.demandMonthly}`,
+//             icon: 'success',
+//             className: 'swal-footer'
+//             }))
 
-        },
+//         },
         
-        getMonetaryInflation() {
+//         getMonetaryInflation() {
             
-            this.COTATION_INFLATION()
+//             this.COTATION_INFLATION()
             
-            return (swal({
-                title: "Valor da inflação",
-                text: this.market.cotationInflation.toString(),
-                icon: 'success',
-                dangerMode: true,
-                className: 'swal-footer'
-            }))
+//             return (swal({
+//                 title: "Valor da inflação",
+//                 text: this.market.cotationInflation.toString(),
+//                 icon: 'success',
+//                 dangerMode: true,
+//                 className: 'swal-footer'
+//             }))
 
-        },
+//         },
         
-        getDollarCotation() {
+//         getDollarCotation() {
         
-            this.COTATION_DOLLAR()
+//             this.COTATION_DOLLAR()
             
-            return (swal({
-                title: "Valor da cotação do dólar",
-                text: this.market.cotationDollar.toString(),
-                icon: 'success',
-                dangerMode: true,
-                className: 'swal-footer'
-            }))
-        },
+//             return (swal({
+//                 title: "Valor da cotação do dólar",
+//                 text: this.market.cotationDollar.toString(),
+//                 icon: 'success',
+//                 dangerMode: true,
+//                 className: 'swal-footer'
+//             }))
+//         },
 
-        getMediumPriceConcurrent() {
-            return (swal({
-            title: "Valor do preço médio do concorrente",
-            text: "R$ 3.500",
-            icon: 'success',
-            className: 'swal-footer'
-            }))
-        }
-  }
-}
+//         getMediumPriceConcurrent() {
+//             return (swal({
+//             title: "Valor do preço médio do concorrente",
+//             text: "R$ 3.500",
+//             icon: 'success',
+//             className: 'swal-footer'
+//             }))
+//         }
+//   }
+// }
 </script>

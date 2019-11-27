@@ -8,7 +8,7 @@
                             <div class="brand-logo">
                                 <img src="/src/assets/images/LogoJogo.png" alt="logo">
                             </div>
-                            <h4>Cadastre sua equipe!</h4>
+                            <h4>Cadastre o líder!</h4>
                             <h6 class="font-weight-light">Informe os campos abaixo para cadastrar</h6>
                             
                             <div class="alert alert-dismissible fade show" :class="`${alert.type}`" role="alert" v-if="alert.message">

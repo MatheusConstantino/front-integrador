@@ -1,5 +1,5 @@
 <template>
-    <div class="container-scroller">
+    <span class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
@@ -30,7 +30,7 @@
       </div>
     </nav>
     <!-- partial -->
-    <div class="container-fluid page-body-wrapper">
+    <span class="container-fluid page-body-wrapper">
       <!-- partial:partials/_sidebar.html -->
      <nav class="sidebar sidebar-offcanvas" id="sidebar">
                 <ul class="nav">
@@ -110,10 +110,7 @@
             <div class="col-md-12 grid-margin">
               <div class="d-flex justify-content-between align-items-center">
                 <div>
-                  <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard </span>
-                </div>
-                <div>
-                  <h4 class="font-weight-bold mb-0">RODADA:</h4><span> $numero_rodada </span>
+                  <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard > ERB</span>
                 </div>
               </div>
             </div>
@@ -123,85 +120,64 @@
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Região:<span style="color:#000"> {{ region.description }}</span></p>
-                  <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center" style="text-align:center;">
-                    <img :src="`${company.company.logoUrl}`" style="width:100%;">
+                  <p class="card-title text-md-center text-xl-left">Quantidade</p>
+                  <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" style="font-size:10!important;">87</h3>
+                    <i class="ti-signal icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
+                  <!-- <span class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Para gasto</small></span></p> -->
                 </div>
               </div>
             </div>
-
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Capital da empresa</p>
+                  <p class="card-title text-md-center text-xl-left">Preço de instalação</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" style="font-size:10!important;">R$ {{ company.company.cashFlow.toFixed(2) }}</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 30.000,00</h3>
                     <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
-                  <p class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Para gasto</small></span></p>
+                  <!-- <span class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Funcionários restante</small></span></p> -->
                 </div>
               </div>
             </div>
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Equipe</p>
-                  <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">10</h3>
-                    <i class="ti-user icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
-                  </div>
-                  <p class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Funcionários restante</small></span></p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-3 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Armazém</p>
+                  <p class="card-title text-md-center text-xl-left">Cobertura</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
                     <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">40016</h3>
-                    <i class="ti-package icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
+                    <i class="ti-rss-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
-                  <p class="mb-0 mt-2 text-success">50.00%<span class="text-black ml-1"><small>Disponível</small></span></p>
+                  <!-- <span class="mb-0 mt-2 text-success">50.00%<span class="text-black ml-1"><small>Disponível</small></span></p> -->
                 </div>
               </div>
             </div>
-            <div class="col-md-3 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Compra</p>
-                  <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">100</h3>
-                    <i class="ti-truck icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
-                  </div>
-                  <p class="mb-0 mt-2 text-success"><span class="text-black ml-1"><small>Unidades compradas na última compra</small></span></p>
-                </div>
-              </div>
-            </div>
-            <!-- <div class="col-md-3 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Mercado</p>
-                  <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 4,20</h3>
-                    <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
-                  </div>
-                  <p class="mb-0 mt-2 text-success"><span class="text-black ml-1"><small>Valor do dolar</small></span></p>
-                </div>
-              </div>
-            </div> -->
-            <div class="col-md-3 grid-margin stretch-card">
-              <div class="card">
-                <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Produtos vendidos</p>
-                  <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">1000</h3>
-                    <i class="ti-mobile icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
-                  </div>
-                </div>
-              </div>
-            </div>
+           
+             <div class="col-md-6 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">Contratar ERB</h4>
+                                    <p class="card-description"> </p>
+                                    <form action="#" method="post">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Quantidade</span>
+                                                </div>
+                                                <input type="text" class="form-control" name="contratar" aria-label="Username">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="my-3">
+                                                <button type="submit" name="" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">CONTRATAR</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
           </div>
         </div>
@@ -217,9 +193,9 @@
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
-    </div>
+    </span>
     <!-- page-body-wrapper ends -->
-  </div>
+  </span>
 </template>
 
 <script>

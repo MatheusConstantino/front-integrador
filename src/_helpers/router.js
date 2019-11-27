@@ -17,7 +17,8 @@ import Emprestimo from '../views/emprestimo/Emprestimo'
 import Venda from '../views/venda/Vendas'
 import Historico from '../views/historico/Historico'
 import Professor from '../views/professor/ProfessorPage'
-import ContratoIncial from '../views/contratacaoinicial/contratacaoInicial'
+import erb from '../views/erb/erb'
+import pa from '../views/pa/pa'
 
 import { getUserLocalStorage } from './localstorage/LocalStorage';
 
@@ -34,7 +35,7 @@ export const router = new Router({
     { path: '/armazem',             component: ArmazemPage          },
     { path: '/produto',             component: ProdutoPage          },
     { path: '/equipe',              component: EquipePage           },
-    { path: '/fornecedor',          component: FornecedorPage       } ,
+    { path: '/fornecedor',          component: FornecedorPage       },
     { path: '/mercado',             component: MercadoPage          },
     { path: '/cadastro-equipe',     component: CadastroUser         },
     { path: '/cadastro-empresa',    component: CadastroE            },
@@ -45,7 +46,8 @@ export const router = new Router({
     { path: '/venda',                component: Venda               },
     { path: '/historico',            component: Historico           },
     { path: '/dashboard-professor',  component: Professor           },
-    { path: '/contrato-inicial',     component: ContratoIncial      },
+    { path: '/erb',  component: erb           },
+    { path: '/pa',  component: pa           },
     { path: '*', redirect: '/'                                      }
   ]
 });
