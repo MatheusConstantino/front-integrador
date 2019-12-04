@@ -319,110 +319,110 @@
                         $("#cd").toggle();
                     }
 
-//   import { mapState, mapActions } from 'vuex'
-//   import swal from 'sweetalert'
+   import { mapState, mapActions } from 'vuex'
+   import swal from 'sweetalert'
 
-// export default {
-//     data () {
-//       return {
-//         prices: {
-//           priceSearchAnnualDemand : 'R$ 15.000,00',
-//           priceSearchMonthlyDemand : 'R$ 15.000,00',
-//           priceSearchMonetaryInflation : 'R$ 7.500,00',
-//           priceSearchDollarCotation :  'R$ 7.500,00',
-//           priceSearchPriceConcurrent : 'R$ 19.000,00'
-//         },
-//         cards: {
-//           annualDemand: 'R$ XXXX,XX',
-//           monthlyDemand: 'R$ XXXXX,XX',
-//           inflation: 'X.X %',
-//           dollarCotation: 'R$ X.XX' 
-//         }
-//       }
-//     },
+    export default {
+        data () {
+            return {
+                prices: {
+                priceSearchAnnualDemand : 'R$ 15.000,00',
+                priceSearchMonthlyDemand : 'R$ 15.000,00',
+                priceSearchMonetaryInflation : 'R$ 7.500,00',
+                priceSearchDollarCotation :  'R$ 7.500,00',
+                priceSearchPriceConcurrent : 'R$ 19.000,00'
+                },
+                cards: {
+                annualDemand: 'R$ XXXX,XX',
+                monthlyDemand: 'R$ XXXXX,XX',
+                inflation: 'X.X %',
+                dollarCotation: 'R$ X.XX' 
+                }
+            }
+        },
 
-//     async beforeCreate() {
+        async beforeCreate() {
 
-//         Promise.all([
-//             await this.$store.dispatch('market/COTATION_INFLATION'),
-//             await this.$store.dispatch('market/COTATION_DOLLAR'),
-//             await this.$store.dispatch('market/DEMAND_MONTHLY'),
-//             await this.$store.dispatch('market/DEMAND_YEARLY')
-//         ]);
-//     },
+            Promise.all([
+                await this.$store.dispatch('market/COTATION_INFLATION'),
+                await this.$store.dispatch('market/COTATION_DOLLAR'),
+                await this.$store.dispatch('market/DEMAND_MONTHLY'),
+                await this.$store.dispatch('market/DEMAND_YEARLY')
+            ]);
+        },
 
-//     computed: {
-//         ...mapState({
-//             alert   : state => state.alert,
-//             market  : state => state.market,
-//         })
-//     },
+        computed: {
+            ...mapState({
+                alert   : state => state.alert,
+                market  : state => state.market,
+            })
+        },
 
 
-//     methods: {
-        
-//         ...mapActions('market', ['COTATION_INFLATION', 'COTATION_DOLLAR', 'DEMAND_MONTHLY', 'DEMAND_YEARLY']),
-
-//         getPriceAnnualDemand() {
-
-//             this.DEMAND_YEARLY()
-
-//             return ( swal ({
-//                 title: "Valor da demanda anual",
-//                 text: `R$ ${this.market.demandYearly}`,
-//                 icon: 'success',
-//                 className: 'swal-footer'
-//             }))
-//         },
-        
-//         getPriceMonthlyDemand() {
+        methods: {
             
-//             this.DEMAND_MONTHLY()
-           
-//             return (swal({
-//             title: "Valor da demanda mensal",
-//             text: `R$ ${this.market.demandMonthly}`,
-//             icon: 'success',
-//             className: 'swal-footer'
-//             }))
+            ...mapActions('market', ['COTATION_INFLATION', 'COTATION_DOLLAR', 'DEMAND_MONTHLY', 'DEMAND_YEARLY']),
 
-//         },
-        
-//         getMonetaryInflation() {
-            
-//             this.COTATION_INFLATION()
-            
-//             return (swal({
-//                 title: "Valor da inflação",
-//                 text: this.market.cotationInflation.toString(),
-//                 icon: 'success',
-//                 dangerMode: true,
-//                 className: 'swal-footer'
-//             }))
+            getPriceAnnualDemand() {
 
-//         },
-        
-//         getDollarCotation() {
-        
-//             this.COTATION_DOLLAR()
-            
-//             return (swal({
-//                 title: "Valor da cotação do dólar",
-//                 text: this.market.cotationDollar.toString(),
-//                 icon: 'success',
-//                 dangerMode: true,
-//                 className: 'swal-footer'
-//             }))
-//         },
+                this.DEMAND_YEARLY()
 
-//         getMediumPriceConcurrent() {
-//             return (swal({
-//             title: "Valor do preço médio do concorrente",
-//             text: "R$ 3.500",
-//             icon: 'success',
-//             className: 'swal-footer'
-//             }))
-//         }
-//   }
-// }
+                return ( swal ({
+                    title: "Valor da demanda anual",
+                    text: `R$ ${this.market.demandYearly}`,
+                    icon: 'success',
+                    className: 'swal-footer'
+                }))
+            },
+        
+            getPriceMonthlyDemand() {
+                
+                this.DEMAND_MONTHLY()
+            
+                return (swal({
+                title: "Valor da demanda mensal",
+                text: `R$ ${this.market.demandMonthly}`,
+                icon: 'success',
+                className: 'swal-footer'
+                }))
+
+            },
+        
+            getMonetaryInflation() {
+                
+                this.COTATION_INFLATION()
+                
+                return (swal({
+                    title: "Valor da inflação",
+                    text: this.market.cotationInflation.toString(),
+                    icon: 'success',
+                    dangerMode: true,
+                    className: 'swal-footer'
+                }))
+
+            },
+            
+            getDollarCotation() {
+            
+                this.COTATION_DOLLAR()
+                
+                return (swal({
+                    title: "Valor da cotação do dólar",
+                    text: this.market.cotationDollar.toString(),
+                    icon: 'success',
+                    dangerMode: true,
+                    className: 'swal-footer'
+                }))
+            },
+
+            getMediumPriceConcurrent() {
+                return (swal({
+                title: "Valor do preço médio do concorrente",
+                text: "R$ 3.500",
+                icon: 'success',
+                className: 'swal-footer'
+                }))
+            }
+        }
+    }
 </script>
