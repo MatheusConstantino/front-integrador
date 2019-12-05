@@ -255,7 +255,7 @@ export default {
         changeProduct() {
             console.log("", this.product)
             this.produto = this.product.products[event.target.value]
-            debugger
+            
         }
     }
 }

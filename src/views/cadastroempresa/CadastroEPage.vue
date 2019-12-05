@@ -158,9 +158,9 @@ export default {
             this.submitted = true;
 
             const { name, motivo, missao, vision, valores, logo } = this;
-            debugger
+            
             if (name && motivo && missao && vision && valores && logo) {
-                debugger
+                
                 this.REGISTER_COMPANY({ name, motivo, missao, vision, valores, logo })
                     .then((resolve) => this.clear())
             }

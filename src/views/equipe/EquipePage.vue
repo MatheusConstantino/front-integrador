@@ -132,10 +132,9 @@
                                     <h4 class="font-weight-bold mb-0">SELECIONE EQUIPE:</h4>
                                     <p>
                                         <div class="form-group">
-                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3">
-                                                <option>Comercial</option>
-                                                <option>Logística</option>
-                                                <option>Infraestrutura</option>
+                                            <select class="form-control form-control-sm" id="exampleFormControlSelect3" @change="changeTeams">
+                                                <option disabled selected> Selecione uma equipe</option>
+                                                <option v-for="(value, index) in teams.teams.costsAll"  :key="index"> {{ value.type }}</option>
                                             </select>
                                         </div>
                                 </div>
@@ -148,7 +147,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Salário</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ {{this.salary}}</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ {{ teamsSelected.wage }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                 </div>
@@ -159,7 +158,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Desligamento</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 10000</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ {{ teamsSelected.shutdown }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                 </div>
@@ -170,7 +169,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Quantidade</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">{{this.employeesCount}}</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">{{ teamsSelected.productUnit }}</h3>
                                         <i class="ti-user icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                 </div>
@@ -182,7 +181,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Treinamento</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">R$ {{this.trainingValue}}</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">R$ {{ teamsSelected.trainment }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                 </div>
@@ -194,13 +193,13 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Custo Processo Seletivo</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">R$ 400,00</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" name="estoque">R$ {{ teamsSelected.selectiveProcessCost }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-12 grid-margin stretch-card"></div>
+
                         <div class="col-md-6 grid-margin stretch-card">
                             <div class="card">
                                 <div class="card-body">
@@ -208,35 +207,31 @@
                                     <p class="card-description">
                                     </p>
                                     <form action="#" method="post">
-                              <div class="form-group">
-                                   <label for="exampleFormControlSelect2">Quantidade</label>
-                                   <select class="form-control" id="exampleFormControlSelect2" v-model="selectedTeamCount">
-                                     <option>SELECIONE</option>   
-                                     <option>1</option>
-                                     <option>2</option>
-                                     <option>3</option>
-                                     <option>4</option>
-                                     <option>5</option>
-                                   </select>
-                           </div>
-                              <div class="form-group">
-                                   <label for="exampleFormControlSelect2">Setor</label>
-                                   <select class="form-control" id="exampleFormControlSelect2">
-                                   <option>SELECIONE</option>
-                                    <option>Comercial</option>
-                                     <option>Logistica</option>
-                                    <option>Infraestrutura</option>
-                                   </select>
-                               </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlSelect2">Quantidade</label>
+                                            <select class="form-control" id="exampleFormControlSelect2">
+                                                    <option disabled selected> Selecione uma quantidade </option>
+                                                    <option> {{ teamsSelected.productUnit }}</option>
+                                            </select>
+                                        </div>
+                                <!-- <div class="form-group">
+                                    <label for="exampleFormControlSelect2">Setor</label>
+                                    <select class="form-control" id="exampleFormControlSelect2">
+                                            <option disabled selected> Selecione um setor </option>
+                                            <option v-for="(value, index) in teams.teams.costsAll"  :key="index"> {{ value.type }}</option>
+                                    </select>
+                                </div>-->
                                         <div class="my-3">
-                                            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="hire($event)">CONTRATAR</button>
+                                            <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" v-on:click="handleSubmit">CONTRATAR</button>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> 
 
-                        <div class="col-md-6 grid-margin stretch-card">
+                        <div class="col-md-12 grid-margin stretch-card"></div>
+                        
+                        <!-- <div class="col-md-6 grid-margin stretch-card">
                             <center>
                                 <div class="card">
                                     <div class="card-body">
@@ -247,8 +242,8 @@
                                     </div>
                                 </div>
                             </center>
-                        </div>
-                    </div>
+                        </div>-->
+                    </div> 
 
                 </div>
                 <!-- content-wrapper ends -->
@@ -270,21 +265,53 @@
 </template>
 
 <script>
-export default {
-    data: () => {
-        return {
-            selectedTeamCount: 0,
-            employeesCount: 30,
-            trainingValue: 9000,
-            salary: 30000
-        }
-    },
-    methods: {
-        hire: function (event) {
-            if (event) event.preventDefault()
-            this.employeesCount = parseInt(this.employeesCount) + (parseInt(this.selectedTeamCount) * 10)
-            this.salary = parseInt(this.employeesCount) * 1000
+
+    import { mapState, mapActions } from 'vuex'
+
+    export default {
+        data: () => {
+            return {
+                teamsSelected: {}
+            }
+        },
+
+        computed: {
+            ...mapState({
+                alert   : state => state.alert,
+                teams   : state => state.teams,
+            })
+        },
+
+        async beforeCreate() {
+
+            Promise.all([
+                await this.$store.dispatch('teams/SEARCH_ALL_TEAMS'),
+                await this.$store.dispatch('teams/SEARCH_COST_TEAMS_ALL'),
+                await this.$store.dispatch('teams/SEARCH_TEAMS_TYPE'),
+            ]);
+        }, 
+
+
+        methods: {
+
+            ...mapActions('teams', ['REGISTER_TEAMS']),
+
+            async handleSubmit (event) {
+
+                const { teamsSelected } = this
+                event.preventDefault();
+                
+                if (teamsSelected) {
+                    
+                    await this.REGISTER_TEAMS({ teamsSelected })
+                        
+                }
+            },
+
+            changeTeams(index) {
+                var filtro = this.teams.teams.costsAll.filter((x) => x.type == event.target.value)
+                this.teamsSelected = filtro[0]
+            }
         }
     }
-}
 </script>

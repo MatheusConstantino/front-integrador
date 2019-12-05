@@ -66,11 +66,11 @@ export default {
         ...mapActions('region', ['PERSIST_REGION']),
         
         setRegion (e) {
-            debugger
+            
             console.log("THIS",this)
             const { region } = this;
             if (region) {
-                debugger
+                
                 this.PERSIST_REGION({ region })
             }
         }

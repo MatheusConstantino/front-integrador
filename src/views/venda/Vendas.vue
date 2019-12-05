@@ -285,7 +285,7 @@
             registerProductSale(event) {
 
                 const { quantidade, tipo, preco } = this;
-                debugger
+                
                 if (event) event.preventDefault()
                 
                 if(quantidade != undefined && tipo != undefined && preco != undefined) {

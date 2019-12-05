@@ -17,7 +17,7 @@ const actions = {
 
    COTATION_INFLATION({ commit }) {
         cotationInflation()
-            .then((onData)   => { debugger; commit('contatioInflationSuccess', onData);  return Promise.resolve(onData)   })
+            .then((onData)   => { commit('contatioInflationSuccess', onData);  return Promise.resolve(onData)   })
             .catch((onError) => { commit('contatioInflationFailure', onError); return Promise.reject()          })
    },
    
@@ -56,7 +56,6 @@ const mutations = {
     contatioInflationSuccess(state, inflation) {
         state.isRequesting = false;
         state.cotationInflation = inflation;
-        debugger;
     },
 
     contatioInflationFailure(state) {

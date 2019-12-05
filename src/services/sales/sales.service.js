@@ -4,7 +4,6 @@ import { REGISTER_NEW_SALE } from "../../utils/environments";
 export const registerNewSale = (quantidade, precoUnitario, idProductType) => {
     return closeURL.post(REGISTER_NEW_SALE, { qtt: quantidade, unitPrice: precoUnitario, productTyper: idProductType })
         .then((onValue) => {
-            debugger
             return Promise.resolve(onValue.data);
         })
         .catch((onError) => {

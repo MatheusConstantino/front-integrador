@@ -12,6 +12,7 @@ import { products   } from './products/products.module';
 import { loan       } from './loan/loan.module';
 import { market     } from './market/market.module';
 import { sales      } from './sales/sales.module';
+import { teams      } from './teams/teams.module';
 
 Vue.use(Vuex);
 
@@ -26,7 +27,8 @@ export const store = new Vuex.Store({
         products,
         loan,
         market,
-        sales
+        sales,
+        teams
     },
     plugins: [createPersistedState({blacklist: ["error", "success", "clear"]})]
 });

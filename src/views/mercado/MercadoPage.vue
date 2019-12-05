@@ -139,7 +139,7 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.demandYearly }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-  <a onclick="demanda_anual()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
+                                        <a v-on:click="getPriceAnnualDemand()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
                                 </div>
                             </div>
                         </div>
@@ -152,7 +152,7 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.demandMonthly }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                     <a onclick="demanda_mensal()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
+                                     <a v-on:click="getPriceMonthlyDemand()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
                                 </div>
                             </div>
                         </div>
@@ -165,7 +165,7 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.cotationInflation ? market.cotationInflation : 'X.X' }}%</h3>
                                         <i class="ti-bar-chart-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
- <a onclick="mercado()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
+                                        <a v-on:click="getMonetaryInflation()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
                                 </div>
                             </div>
                         </div>
@@ -178,7 +178,7 @@
                                         <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ market.cotationDollar }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
- <a onclick="dolar()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
+                                        <a v-on:click="getMonetaryInflation()" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" style="color:#FFF;">PESQUISAR</a>
                                 </div>
                             </div>
                         </div>
@@ -366,7 +366,7 @@
             getPriceAnnualDemand() {
 
                 this.DEMAND_YEARLY()
-
+                
                 return ( swal ({
                     title: "Valor da demanda anual",
                     text: `R$ ${this.market.demandYearly}`,

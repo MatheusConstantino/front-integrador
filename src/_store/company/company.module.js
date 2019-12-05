@@ -14,10 +14,9 @@ const actions = {
         registerCompany(name, motivo, missao, vision, valores, logo)
             .then((onResponse) => { 
                 var user = JSON.parse(localStorage.getItem('USER'));
-                console.log("USER", user)
-                debugger
+
                 searchCompanyByIdLeader(user.id).then((onResponse) => {
-                    debugger
+
                     commit('registerCompanySuccess', onResponse);
                     router.push('/escolhe-regiao')  
                 });

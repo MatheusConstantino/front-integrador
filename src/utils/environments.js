@@ -2,13 +2,16 @@ export const BASEURL            = 'https://companytrial-backend-beta.herokuapp.c
 export const LOGIN              = '/login';
 
 //registers
-export const REGISTER_ADMIN     = '/users/new-admin';
-export const REGISTER_TEACHER   = '/users/new-member';
-export const REGISTER_LIDER     = '/users/new-leader';
-export const REGISTER_MEMBER    = '/users/new-member';
-export const REGISTER_COMPANY   = '/companies/new';
-export const REGISTER_NEW_LOAN  = '/loan/new';
-export const REGISTER_NEW_SALE  = '/sale/new'
+export const REGISTER_ADMIN         = '/users/new-admin';
+export const REGISTER_TEACHER       = '/users/new-member';
+export const REGISTER_LIDER         = '/users/new-leader';
+export const REGISTER_MEMBER        = '/users/new-member';
+export const REGISTER_COMPANY       = '/companies/new';
+export const REGISTER_NEW_LOAN      = '/loan/new';
+export const REGISTER_NEW_SALE      = '/sale/new'
+export const REGISTER_BASE_RADIO    = '/brs/add'
+export const REGISTER_TEAMS         = '/teams/add'
+export const REGISTER_TEAMS_BONUS   = '/teams/add-bonus'
 
 
 //search
@@ -24,6 +27,11 @@ export const MARKET_COTATION_DOLLAR     = '/market-cotations/dolar';
 export const MARKET_COTATION_INFLATION  = '/market-cotations/inflation';
 export const MARKET_LIMITS_MONTHLY      = '/market-limits/monthly';
 export const MARKET_LIMITS_YEARLY       = '/market-limits/yearly';
+export const SEARCH_BASE_RADIO_STATION  = '/brs';
+export const SEARCH_ALL_TEAMS           = '/teams/all';
+export const SEARCH_TEAMS_COSTS_TYPE    = '/teams/costs';
+export const SEARCH_TEAMS_COST_ALL      = '/teams/costs/all';
+export const SEARCH_TEAMS_TYPE          = '/teams/type'
 
 //list
 export const LIST_ALL_MEMBERS_COMPANY   = '/companies/company-members';
@@ -32,6 +40,7 @@ export const LIST_ALL_PRODUCTS          = '/products/all';
 
 //delete
 export const DELETE_USER                = '/users/delete';
+export const DELETE_BASE_RADIO_STATION  = '/brs/delete'
 
 
 

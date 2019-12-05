@@ -12,7 +12,7 @@ const actions = {
         searchAllLoans()
             .then((onData) => {
                 commit('listAllLoansSuccess', onData)
-                debugger
+                
                 return Promise.resolve(onData)
             })
             .catch((onError) => { return Promise.reject() })
@@ -39,17 +39,17 @@ const actions = {
     REGISTER_NEW_LOAN({ dispatch, commit }, { totalValue }) {
         
         commit('registerNewLoanRequest')
-        debugger
+        
         registerNewLoan(totalValue)
             .then((onData) => {
-                debugger
+                
                 commit('registerNewLoanSuccess')
                 commit('listMaxValueLoanSuccess', onData)
                 dispatch('alert/success', onData, { root: true });
                 return Promise.resolve(onData)
             })
             .catch((onError) => { 
-                debugger
+                
                 commit('registerNewLoanSuccess');
                 dispatch('alert/error', onError, { root: true });
                 return Promise.reject() 
