@@ -25,6 +25,7 @@
     "image-webpack-loader": "^4.6.0",
     "mini-css-extract-plugin": "^0.5.0",
     "node-sass": "^4.11.0",
+    "nodemon": "^2.0.2",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "path": "^0.12.7",
     "resolve-url-loader": "^3.1.0",

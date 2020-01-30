@@ -101,7 +101,7 @@
                         </a>
                     </li>
                 </ul>
-            </nav>
+      </nav>
 
       <!-- partial -->
       <div class="main-panel">
@@ -122,7 +122,7 @@
                 <div class="card-body">
                   <p class="card-title text-md-center text-xl-left">Quantidade</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" style="font-size:10!important;">87</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" style="font-size:10!important;" >{{!quantity ? 0 : quantity}}</h3>
                     <i class="ti-signal icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
                   <!-- <span class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Para gasto</small></span></p> -->
@@ -159,18 +159,10 @@
                                 <div class="card-body">
                                     <h4 class="card-title">Contratar ERB</h4>
                                     <p class="card-description"> </p>
-                                    <form action="#" method="post">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Quantidade</span>
-                                                </div>
-                                                <input type="text" class="form-control" name="contratar" aria-label="Username">
-                                            </div>
-                                        </div>
+                                    <form @submit.prevent="onSave">
                                         <div class="form-group">
                                             <div class="my-3">
-                                                <button type="submit" name="" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">CONTRATAR</button>
+                                                <button name="" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="">CONTRATAR</button>
                                             </div>
                                         </div>
                                     </form>
@@ -191,7 +183,6 @@
           </div>
         </footer>
         <!-- partial -->
-      </div>
       <!-- main-panel ends -->
     </span>
     <!-- page-body-wrapper ends -->
@@ -203,14 +194,47 @@
   import { mapState, mapActions } from 'vuex'
 
   export default {
-    
+    data () {
+      return {
+        quantity: null,
+      }
+    },
     computed: {
         ...mapState({
             region : state => state.region.data,
             auth  : state => state.auth,
-            company: state => state.company
+            company: state => state.company,
+            baseRadio: state => state.baseRadio
         })
     },
+    mounted () {
+    //this.info = service.listBaseRadioStation().data;
+    
+    },
+
+    methods: {
+      ...mapActions('baseRadio', ['REGISTER_BASE_RADIO_STATION', 'LIST_BASES', 'DELETE_BASE_RADIO_STATION']),
+
+        onSave: function () {
+            this.REGISTER_BASE_RADIO_STATION()
+              .then((resolve) => console.log(resolve))
+        },
+
+        onList: function(){
+          this.DELETE_BASE_RADIO_STATION({ id })
+          .then(response => {
+            console.log(response);            
+          })
+          .error(error => console.log(error));
+        },
+
+        onDelete: function({id})
+        {
+          this.DELETE_BASE_RADIO_STATION({ id })
+          .then(response => console.log(response))
+          .error(error => console.log(error));
+        }
+    }
   }
   
 </script>

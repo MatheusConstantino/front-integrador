@@ -8,7 +8,7 @@
                             <div class="brand-logo">
                                 <img src="/src/assets/images/LogoJogo.png" alt="logo">
                             </div>
-                            <h4>Bem vindo $person</h4>
+                            <h4>Bem vindo, Lider!</h4>
                             <h6 class="font-weight-light">Aqui você pode escolher sua região de atuação.</h6>
                             <form class="pt-3">
 
