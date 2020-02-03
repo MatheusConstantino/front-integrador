@@ -68,7 +68,7 @@ module.exports = {
     },
 
     externals: {
-      apiUrl: 'https://companytrial-backend-beta.herokuapp.com',
+      apiUrl: 'http://localhost:8080',
       closeURL: 'axios',
       openURL: 'axios',
       headers: {

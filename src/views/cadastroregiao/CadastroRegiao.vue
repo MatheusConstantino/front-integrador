@@ -55,23 +55,32 @@ export default {
         return{
             region:undefined,
             regions:[
-                { description : "Agro Econômica", allCost: 75000000, personCost : 2346 },
-                { description : "Turística", allCost: 80000000, personCost : 1727 },
-                { description : "Industrializada", allCost: 120000000, personCost : 1307 }
+                { description : "Agro Econômica", allCost: 75000000, personCost : 2346, idRegion: 1},
+                { description : "Turística", allCost: 80000000, personCost : 1727, idRegion: 2 },
+                { description : "Industrializada", allCost: 120000000, personCost : 1307, idRegion: 3 }
             ]
         }
     },
+    create: {
+        
+    },
+
+    computed: {
+        ...mapState({
+            alert   : state => state.alert,
+            region1 : state => state.region
+        })
+    },
 
     methods: {
-        ...mapActions('region', ['PERSIST_REGION']),
+        ...mapActions('region', ['REGISTER_COMP_REGION']),
         
         setRegion (e) {
-            
-            console.log("THIS",this)
+
             const { region } = this;
             if (region) {
-                
-                this.PERSIST_REGION({ region })
+                alert(region.idRegion)
+                this.REGISTER_COMP_REGION({region})
             }
         }
       
