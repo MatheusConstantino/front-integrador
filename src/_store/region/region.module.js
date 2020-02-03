@@ -21,15 +21,11 @@ const actions ={
         alert("Tento ir")
         setRegion(region.idRegion)
         .then((onResponse) => { 
-            alert("foi")
             commit('registerRegion', onResponse )
-            alert("foi1")
+            console.log(onResponse)
             router.push('/')
-            alert("agora foi mesmo")
         })
         .catch((onError) => {
-            console.log(onError)
-            alert("1")
             commit('registerRegionFailure', onError);
             dispatch('alert/error', onError, { root: true });     
         })

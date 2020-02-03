@@ -10,8 +10,7 @@
                             </div>
                             <h4>Bem vindo $person</h4>
                             <h6 class="font-weight-light">Aqui você pode escolher sua região de atuação.</h6>
-                            <form class="pt-3">
-
+                            <form @submit.prevent="setRegion" class="pt-3">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <div v-for="(item,index) in regions" v-bind:key="index" class="form-check">
@@ -23,13 +22,10 @@
                                             </label>
                                             <hr>
                                         </div>
-                                        
-                                        
                                     </div>
                                 </div>
-
                                 <div class="mt-3">
-                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="setRegion" :disabled="!region" >Escolher região</button>
+                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" :disabled="!region" >Escolher região</button>
                                 </div>
                             </form>
                         </div>
@@ -79,11 +75,9 @@ export default {
 
             const { region } = this;
             if (region) {
-                alert(region.idRegion)
                 this.REGISTER_COMP_REGION({region})
             }
-        }
-      
+        }      
     }
 }
 </script>

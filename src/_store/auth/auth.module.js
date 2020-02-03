@@ -25,10 +25,14 @@ const actions = {
                     await searchCompanyByIdLeader(onValue.id)
                         .then((onValue) => {
                             if(_.isEmpty(onValue)) {
+
                                 return router.push('/cadastro-empresa')
                             }
+                            else if(_.isEqualWith(onValue.idRegion, null)){
+                                return router.push('/escolhe-regiao')
+                            }
                             dispatch('company/PERSIST_COMPANY', onValue, { root: true })
-                            return router.push('/escolhe-regiao')
+                            return router.push('/')
                         }).catch((onError) => { })
                     
                     
