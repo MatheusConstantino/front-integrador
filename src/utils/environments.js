@@ -12,6 +12,7 @@ export const REGISTER_NEW_SALE = "/sale/new";
 export const REGISTER_BASE_RADIO = "/brs/add";
 export const REGISTER_TEAMS = "/teams/add";
 export const REGISTER_TEAMS_BONUS = "/teams/add-bonus";
+export const REGISTER_COMP_REGION = "/region/add";
 
 //search
 export const SEARCH_ALL = "/users/all";

@@ -230,7 +230,7 @@
     
     computed: {
         ...mapState({
-            region : state => state.region.data,
+            region : state => state.region,
             auth  : state => state.auth,
             company: state => state.company
         })

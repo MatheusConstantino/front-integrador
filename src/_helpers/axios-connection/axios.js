@@ -7,13 +7,21 @@ export const openURL = axios.create({
   baseURL: BASEURL,
   timeout: 30000,
   headers: {
-          "Access-Control-Allow-Origin": "*",
-        }
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+    "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+  }
 });
 
 export const closeURL = axios.create({
   baseURL: BASEURL,
   timeout: 30000,
+  headers: {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
+    "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
+  }
+ 
 });
 
 closeURL.interceptors.request.use(
@@ -26,14 +34,15 @@ closeURL.interceptors.request.use(
 
 
 export const requestHandlerError = (error) => {
-
+    console.log(error)
     const { data } = error;
 
     let errMsg ="";
-
+    
     if(_.isEqual(error.status, 401)) { return data ? data.message ? data.message : data : MENSAGEM_UNAUTHORIZED }
     if(_.isEqual(error.status, 404)) { return MENSAGEM_NOT_FOUND    }
     if(_.isEqual(error.status, 500)) { return MENSAGEM_ERRO         }
+    else {return error.status}
 
     
     return data ? errMsg = data.error ? data.error : data : errMsg = MENSAGEM_ERRO

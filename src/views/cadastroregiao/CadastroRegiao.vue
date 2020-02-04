@@ -10,8 +10,7 @@
                             </div>
                             <h4>Bem vindo, Lider!</h4>
                             <h6 class="font-weight-light">Aqui você pode escolher sua região de atuação.</h6>
-                            <form class="pt-3">
-
+                            <form @submit.prevent="setRegion" class="pt-3">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <div v-for="(item,index) in regions" v-bind:key="index" class="form-check">
@@ -23,13 +22,10 @@
                                             </label>
                                             <hr>
                                         </div>
-                                        
-                                        
                                     </div>
                                 </div>
-
                                 <div class="mt-3">
-                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="setRegion" :disabled="!region" >Escolher região</button>
+                                    <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" :disabled="!region" >Escolher região</button>
                                 </div>
                             </form>
                         </div>
@@ -55,26 +51,33 @@ export default {
         return{
             region:undefined,
             regions:[
-                { description : "Agro Econômica", allCost: 75000000, personCost : 2346 },
-                { description : "Turística", allCost: 80000000, personCost : 1727 },
-                { description : "Industrializada", allCost: 120000000, personCost : 1307 }
+                { description : "Agro Econômica", allCost: 75000000, personCost : 2346, idRegion: 1},
+                { description : "Turística", allCost: 80000000, personCost : 1727, idRegion: 2 },
+                { description : "Industrializada", allCost: 120000000, personCost : 1307, idRegion: 3 }
             ]
         }
     },
+    create: {
+        
+    },
+
+    computed: {
+        ...mapState({
+            alert   : state => state.alert,
+            region1 : state => state.region
+        })
+    },
 
     methods: {
-        ...mapActions('region', ['PERSIST_REGION']),
+        ...mapActions('region', ['REGISTER_COMP_REGION']),
         
         setRegion (e) {
-            
-            console.log("THIS",this)
+
             const { region } = this;
             if (region) {
-                
-                this.PERSIST_REGION({ region })
+                this.REGISTER_COMP_REGION({region})
             }
-        }
-      
+        }      
     }
 }
 </script>
