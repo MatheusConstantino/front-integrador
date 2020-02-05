@@ -4,7 +4,7 @@
   "description": "Projeto Integrador 6ºSemestre FATEC-SJC",
   "main": "index.js",
   "scripts": {
-    "build": "npx webpack --config webpack.config.prod.js --mode=production",
+    "build": "npx webpack --config webpack.config.prod.js",
     "watch": "npx webpack --watch",
     "start:dev": "webpack-dev-server"
   },
@@ -38,14 +38,17 @@
     "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.2.0",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.2"
   },
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.8.3",
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
+    "core-js": "^3.6.4",
     "lodash": "^4.17.15",
+    "regenerator-runtime": "^0.13.3",
     "sweetalert": "^2.1.2",
     "vee-validate": "^3.0.11",
     "vue": "^2.6.10",

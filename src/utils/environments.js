@@ -1,4 +1,4 @@
-export const BASEURL = "http://localhost:8080";
+export const BASEURL = "http://192.168.15.10:9090";
 export const LOGIN = "/login";
 
 //registers

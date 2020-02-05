@@ -11,9 +11,6 @@ module.exports = function(env, argv) {
     mode: "production",
     entry: ["./src/app.js"],
     resolve: {
-      alias: {
-        vue$: "vue/dist/vue.esm.js"
-      },
       extensions: ["*", ".js", ".vue", ".json"]
     },
     optimization: {
