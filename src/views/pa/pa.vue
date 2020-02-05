@@ -67,7 +67,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/pa">
                             <i class="ti-signal menu-icon"></i>
-                            <span class="menu-title">PA</span>
+                            <span class="menu-title">Posto de Atendimento</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -110,7 +110,7 @@
             <div class="col-md-12 grid-margin">
               <div class="d-flex justify-content-between align-items-center">
                 <div>
-                  <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard > PA</span>
+                  <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard > Posto de Atendimento</span>
                 </div>
               </div>
             </div>
@@ -122,7 +122,7 @@
                 <div class="card-body">
                   <p class="card-title text-md-center text-xl-left">Quantidade</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" style="font-size:10!important;">87</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" style="font-size:10!important;">{{ !pa ? 0 : pa.pa.length }}</h3>
                     <i class="ti-signal icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
                   <!-- <span class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Para gasto</small></span></p> -->
@@ -132,9 +132,9 @@
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Preço mensal</p>
+                  <p class="card-title text-md-center text-xl-left">Preço mensal por PA</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 30.000,00</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 50.000,00</h3>
                     <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
                   <!-- <span class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Funcionários restante</small></span></p> -->
@@ -144,9 +144,9 @@
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Cobertura</p>
+                  <p class="card-title text-md-center text-xl-left">Cobertura por pa</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">40016</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">27000</h3>
                     <i class="ti-rss-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
                   <!-- <span class="mb-0 mt-2 text-success">50.00%<span class="text-black ml-1"><small>Disponível</small></span></p> -->
@@ -155,29 +155,21 @@
             </div>
            
              <div class="col-md-6 grid-margin stretch-card">
-                            <div class="card">
-                                <div class="card-body">
-                                    <h4 class="card-title">Contratar PA</h4>
-                                   <p class="mb-0 mt-2 ">Preço por P.A: R$ 3000,00</p>
-                                    <form action="#" method="post">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">Quantidade</span>
-                                                </div>
-                                                <input type="text" class="form-control" name="contratar" aria-label="Username">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="my-3">
-                                                <button type="submit" name="" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="" href="">CONTRATAR</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Contratar Posto de Atendimento</h4>
+                            <!--<p class="mb-0 mt-2 ">Preço por P.A: R$ 3000,00</p>-->
+                            <form @submit.prevent="onAdd">
+                                <div class="form-group">
+                                    <div class="my-3">
+                                        <button name="" class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" placeholder="">CONTRATAR</button>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
+                </div>
+            </div>
 
           </div>
         </div>
@@ -186,12 +178,11 @@
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019. All rights reserved.</span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © {{ new Date().getFullYear() }}. All rights reserved.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Feito por ALFA COMPANY</span>
           </div>
         </footer>
         <!-- partial -->
-      </div>
       <!-- main-panel ends -->
     </span>
     <!-- page-body-wrapper ends -->
@@ -208,9 +199,23 @@
         ...mapState({
             region : state => state.region.data,
             auth  : state => state.auth,
-            company: state => state.company
+            company: state => state.company,
+            pa: state => state.pa
         })
     },
+     mounted () {
+      this.onListPas();
+    },
+
+    methods: {
+      ...mapActions('pa', ['LIST_PAS', 'REGISTER_PA', 'DELETE_PA']),
+        onListPas: function () {
+          this.LIST_PAS();
+        },      
+        onAdd: function() {
+          this.REGISTER_PA();
+        } 
+    }
   }
   
 </script>

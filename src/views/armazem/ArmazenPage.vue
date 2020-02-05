@@ -82,7 +82,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/pa">
                             <i class="ti-signal menu-icon"></i>
-                            <span class="menu-title">PA</span>
+                            <span class="menu-title">Posto de Atendimento</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -252,7 +252,7 @@
                                    </select>
                            </div>
                                             <div class="my-3">
-                                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="addValue($event)">COMPRAR</button>
+                                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="addValue($event)">Adicionar</button>
                                             </div>  
                                     </form>
                                 </div>
@@ -284,7 +284,7 @@
                                    </select>
                            </div>
                                             <div class="my-3">
-                                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="removeValue($event)">COMPRAR</button>
+                                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="removeValue($event)">Excluir</button>
                                             </div>  
                                     </form>
                                 </div>
@@ -316,7 +316,7 @@
                                    </select>
                            </div>
                                             <div class="my-3">
-                                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="fixDummyError($event)">COMPRAR</button>
+                                                <button class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" @click="fixDummyError($event)">Comprar</button>
                                             </div>  
                                     </form>
                                 </div>
@@ -342,7 +342,7 @@
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019. All rights reserved.</span>
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © {{ new Date().getFullYear() }}. All rights reserved.</span>
                         <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Feito por ALFA COMPANY</span>
                     </div>
                 </footer>

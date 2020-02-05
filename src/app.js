@@ -13,6 +13,5 @@ new Vue({
     el: '#root',
     render: h => h(Root),
     router,
-    store,
-    
+    store,    
 });

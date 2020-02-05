@@ -7,7 +7,7 @@ import { router } from "../../_helpers/router";
 
 const state = {
   isRegistering: false,
-  baseRadio: {}
+  baseRadio: { baseRadio: [] }
 };
 
 const actions = {
@@ -15,13 +15,22 @@ const actions = {
     commit("registerBaseRadioStationRequest");
     registerBaseRadioStation()
       .then(onResponse => {
-        var user = JSON.parse(localStorage.getItem("USER"));
-
         commit("registerBaseRadioStationSuccess", onResponse);
+        swal({
+          title: "Sucesso!",
+          text: `O ERB foi contratado com sucesso.`,
+          icon: "success",
+          className: "swal-footer"
+        });
       })
       .catch(onError => {
         commit("registerBaseRadioStationFailure", onError);
-        dispatch("alert/error", onError);
+        swal({
+          title: "Erro de conexão!",
+          text: onError.message,
+          icon: "error",
+          className: "swal-footer"
+        });
       });
   },
   LIST_BASES({ dispatch, commit }) {
@@ -30,11 +39,16 @@ const actions = {
     listBaseRadioStation()
       .then(onResponse => {
         commit("listBasesSuccess", onResponse);
-        dispatch("alert/success", onResponse);
+        //dispatch("alert/success", onResponse);
       })
       .catch(onError => {
         commit("listBasesFailure", onError);
-        dispatch("alert/error", onError);
+        swal({
+          title: "Erro de conexão!",
+          text: onError.message,
+          icon: "error",
+          className: "swal-footer"
+        });
       });
   },
   DELETE_BASE_RADIO_STATION({ dispatch, commit }, { id }) {
@@ -43,11 +57,11 @@ const actions = {
     deleteBaseRadioStation(id)
       .then(onResponse => {
         commit("deleteBaseRadioStationSuccess", onResponse);
-        dispatch("alert/success", onResponse);
+        //dispatch("alert/success", onResponse);
       })
       .catch(onError => {
         commit("deleteBaseRadioStationFailure", onError);
-        dispatch("alert/error", onError);
+        //dispatch("alert/error", onError);
       });
   }
 };
@@ -62,17 +76,19 @@ const mutations = {
   },
   registerBaseRadioStationFailure(state) {
     state.isRegistering = false;
-    state.baseRadio = null;
+    //state.baseRadio = { baseRadio: [] };
   },
 
   listBasesRequest(state) {
     state.isRegistering = true;
   },
   listBasesSuccess(state, baseRadio) {
+    state.isRegistering = false;
     state.baseRadio = baseRadio;
   },
   listBasesFailure(state) {
-    state.baseRadio = {};
+    state.isRegistering = false;
+    state.baseRadio = !state.baseRadio ? { baseRadio: [] } : state.baseRadio;
   },
 
   deleteBaseRadioStationRequest(state) {

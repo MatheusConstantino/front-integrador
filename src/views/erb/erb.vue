@@ -67,7 +67,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/pa">
                             <i class="ti-signal menu-icon"></i>
-                            <span class="menu-title">PA</span>
+                            <span class="menu-title">Posto de Atendimento</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -122,7 +122,7 @@
                 <div class="card-body">
                   <p class="card-title text-md-center text-xl-left">Quantidade</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" style="font-size:10!important;" >{{!quantity ? 0 : quantity}}</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" style="font-size:10!important;" >{{baseRadio.baseRadio.length}}</h3>
                     <i class="ti-signal icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
                   <!-- <span class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Para gasto</small></span></p> -->
@@ -132,9 +132,9 @@
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Preço de instalação</p>
+                  <p class="card-title text-md-center text-xl-left">Preço de instalação {{ baseRadio.baseRadio.length === 0 ? 'Inicial' : '' }}</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 30.000,00</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ {{ baseRadio.baseRadio.length === 0 ? region.region.initialInstallationCost : '688.264,00' }}</h3>
                     <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
                   <!-- <span class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Funcionários restante</small></span></p> -->
@@ -144,9 +144,9 @@
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Cobertura</p>
+                  <p class="card-title text-md-center text-xl-left">Cobertura por erb</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">40016</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{region.region.eRBPerPerson}}</h3>
                     <i class="ti-rss-alt icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
                   <!-- <span class="mb-0 mt-2 text-success">50.00%<span class="text-black ml-1"><small>Disponível</small></span></p> -->
@@ -178,7 +178,7 @@
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019. All rights reserved.</span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © {{ new Date().getFullYear() }}. All rights reserved.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Feito por ALFA COMPANY</span>
           </div>
         </footer>
@@ -201,15 +201,14 @@
     },
     computed: {
         ...mapState({
-            region : state => state.region.data,
+            region : state => state.region,
             auth  : state => state.auth,
             company: state => state.company,
             baseRadio: state => state.baseRadio
         })
     },
     mounted () {
-    //this.info = service.listBaseRadioStation().data;
-    
+    this.onList();
     },
 
     methods: {
@@ -221,11 +220,7 @@
         },
 
         onList: function(){
-          this.DELETE_BASE_RADIO_STATION({ id })
-          .then(response => {
-            console.log(response);            
-          })
-          .error(error => console.log(error));
+          this.LIST_BASES();
         },
 
         onDelete: function({id})

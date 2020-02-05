@@ -13,6 +13,7 @@ export const REGISTER_BASE_RADIO = "/brs/add";
 export const REGISTER_TEAMS = "/teams/add";
 export const REGISTER_TEAMS_BONUS = "/teams/add-bonus";
 export const REGISTER_COMP_REGION = "/region/add";
+export const REGISTER_NEW_PA = "/service-desk/add";
 
 //search
 export const SEARCH_ALL = "/users/all";
@@ -32,14 +33,17 @@ export const SEARCH_ALL_TEAMS = "/teams/all";
 export const SEARCH_TEAMS_COSTS_TYPE = "/teams/costs";
 export const SEARCH_TEAMS_COST_ALL = "/teams/costs/all";
 export const SEARCH_TEAMS_TYPE = "/teams/type";
+export const SEARCH_REGION = "/region/";
 
 //list
 export const LIST_ALL_MEMBERS_COMPANY = "/companies/company-members";
-export const LIST_ALL_PRODUCTS = "/products/all";
+export const LIST_ALL_PRODUCTS = "/products/all/medium-price";
+export const LIST_ALL_PAS = "/service-desk";
 
 //delete
 export const DELETE_USER = "/users/delete";
 export const DELETE_BASE_RADIO_STATION = "/brs/delete";
+export const DELETE_PA = "/service-desk/delete";
 
 //default messages
 export const MENSAGEM_ERRO = `Erro inesperado do servidor, por favor tente mais tarde.`;

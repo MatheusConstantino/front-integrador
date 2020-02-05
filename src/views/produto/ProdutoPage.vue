@@ -84,7 +84,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/pa">
                             <i class="ti-signal menu-icon"></i>
-                            <span class="menu-title">PA</span>
+                            <span class="menu-title">Posto de Atendimento</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -135,7 +135,7 @@
                                         <div class="form-group">
                                             <select class="form-control form-control-sm" id="exampleFormControlSelect3" @change="changeProduct">
                                                 <option disabled selected> Selecione um Produto</option>
-                                                <option v-for="(value, index) in product.products"  :key="index"> {{ index+1 }}</option>
+                                                <option v-for="(value, index) in products.products"  :key="index"> {{ index+1 }}</option>
                                             </select>
                                         </div>
                                 </div>
@@ -148,10 +148,10 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Tipo de produto</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h4 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0" v-bind:selected="$index === 0 ? true : false">{{ produto.productType }}</h4>
+                                        <h4 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ produto.productType }}</h4>
                                         <i class="ti-mobile icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
-                                    <p class="mb-0 mt-2 ">Iphone X <span class="text-black ml-1"><small>2019</small></span></p>
+                                    <!-- <p class="mb-0 mt-2 ">Iphone X <span class="text-black ml-1"><small>{{ new Date().getFullYear() }}</small></span></p> -->
                                 </div>
                             </div>
                         </div>
@@ -160,7 +160,8 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Preço de venda</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 4.000,00</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ {{ produto.defaultPrice }}
+                                        </h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-danger">0.47% <span
@@ -173,7 +174,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Preço médio</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ 2.000,00</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">R$ {{ produto.mediumPrice }}</h3>
                                         <i class="ti-money icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-success">64.00%<span
@@ -186,7 +187,7 @@
                                 <div class="card-body">
                                     <p class="card-title text-md-center text-xl-left">Quantidade em estoque</p>
                                     <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">4000</h3>
+                                        <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ produto.quantity }}</h3>
                                         <i class="ti-package icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                                     </div>
                                     <!-- <p class="mb-0 mt-2 text-success">23.00%<span class="text-black ml-1"><small>(30
@@ -214,7 +215,7 @@
                 <!-- partial:partials/_footer.html -->
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019. All rights reserved.</span>
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © {{ new Date().getFullYear() }}. All rights reserved.</span>
                         <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Feito por ALFA COMPANY</span>
                     </div>
                 </footer>
@@ -235,27 +236,29 @@ export default {
     data () {
         return {
            produto: {}
-        }
-        
-    },
-
-    beforeCreate() {
-        this.$store.dispatch('LIST_ALL_PRODUCTS')
+        }        
     },
 
     computed: {
         ...mapState({
             alert   : state => state.alert,
-            product : state => state.products
+            products : state => state.products
         })
+    },
+    mounted () {    
+        this.onList();
     },
 
     methods: {
+      ...mapActions('products', ['LIST_ALL_PRODUCTS']),
 
+        onList: function(){
+          this.LIST_ALL_PRODUCTS();
+        },
         changeProduct() {
-            console.log("", this.product)
-            this.produto = this.product.products[event.target.value]
-            
+            console.log("", this.products)
+            this.produto = this.products.products[event.target.value];
+            this.produto.quantity = 1000;        
         }
     }
 }

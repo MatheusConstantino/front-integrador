@@ -1,27 +1,32 @@
-const CleanWebpackPlugin = require('clean-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MinifyPlugin = require("babel-minify-webpack-plugin");
-const path = require('path');
+const { VueLoaderPlugin } = require("vue-loader");
+const path = require("path");
 
-module.exports = function (env, argv) {
+module.exports = function(env, argv) {
   return {
-    mode: 'production',
-    entry: [
-      './src/app.js'
-    ],
+    mode: "production",
+    entry: ["./src/app.js"],
+    resolve: {
+      alias: {
+        vue$: "vue/dist/vue.esm.js"
+      },
+      extensions: ["*", ".js", ".vue", ".json"]
+    },
     optimization: {
-      minimizer: [
-        new OptimizeCSSAssetsPlugin()
-      ]
-    }
-    ,
+      minimizer: [new OptimizeCSSAssetsPlugin()]
+    },
     plugins: [
-      new CleanWebpackPlugin(['dist']),
+      new VueLoaderPlugin(),
+      new CleanWebpackPlugin({
+        cleanAfterEveryBuildPatterns: ["dist"]
+      }),
       new HtmlWebpackPlugin({
-        title: 'Webpack starter project',
-        template: path.resolve('./src/index.html')
+        title: "Webpack starter project",
+        template: path.resolve("./src/index.html")
       }),
       new MiniCssExtractPlugin({
         filename: "[name].css",
@@ -32,20 +37,20 @@ module.exports = function (env, argv) {
     module: {
       rules: [
         {
+          test: /\.vue$/,
+          loader: "vue-loader"
+        },
+        {
           test: /\.scss$/,
-          use: [
-            MiniCssExtractPlugin.loader,
-            "css-loader",
-            "sass-loader"
-          ]
+          use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
         },
         {
           test: /\.m?js$/,
           exclude: /(node_modules|bower_components)/,
           use: {
-            loader: 'babel-loader',
+            loader: "babel-loader",
             options: {
-              presets: ['@babel/preset-env']
+              presets: ["@babel/preset-env"]
             }
           }
         },
@@ -55,12 +60,12 @@ module.exports = function (env, argv) {
             {
               loader: "file-loader",
               options: {
-                outputPath: './images',
-                name: "[name].[ext]",
-              },
+                outputPath: "./images",
+                name: "[name].[ext]"
+              }
             },
             {
-              loader: 'image-webpack-loader',
+              loader: "image-webpack-loader",
               options: {
                 mozjpeg: {
                   progressive: false,
@@ -68,10 +73,10 @@ module.exports = function (env, argv) {
                 },
                 // optipng.enabled: false will disable optipng
                 optipng: {
-                  enabled: true,
+                  enabled: true
                 },
                 pngquant: {
-                  quality: '65-90',
+                  quality: "65-90",
                   speed: 4
                 },
                 gifsicle: {
@@ -83,16 +88,16 @@ module.exports = function (env, argv) {
                   quality: 20
                 }
               }
-            },
-          ],
+            }
+          ]
         },
         {
           test: /\.html$/,
           use: {
-            loader: 'html-loader',
+            loader: "html-loader"
           }
-        },
+        }
       ]
     }
   };
-}
+};

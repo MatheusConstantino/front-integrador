@@ -67,7 +67,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/pa">
                             <i class="ti-signal menu-icon"></i>
-                            <span class="menu-title">PA</span>
+                            <span class="menu-title">Posto de Atendimento</span>
                         </a>
                     </li>
                     <li class="nav-item">
@@ -113,7 +113,7 @@
                   <h3 class="font-weight-bold mb-0">ALFA COMPANY</h3><span> > Dashboard </span>
                 </div>
                 <div>
-                  <h4 class="font-weight-bold mb-0">RODADA:</h4><span> $numero_rodada </span>
+                  <h3 class="font-weight-bold mb-0">RODADA: {{company.company.currentRound}}</h3>
                 </div>
               </div>
             </div>
@@ -123,7 +123,7 @@
             <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
-                  <p class="card-title text-md-center text-xl-left">Região:<span style="color:#000"> {{ region.description }}</span></p>
+                  <p class="card-title text-md-center text-xl-left">Região:<span style="color:#000"> {{ region.region.regionType }}</span></p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center" style="text-align:center;">
                     <img :src="`${company.company.logoUrl}`" style="width:100%;">
                   </div>
@@ -148,10 +148,10 @@
                 <div class="card-body">
                   <p class="card-title text-md-center text-xl-left">Equipe</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">10</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{ company.company.qttCompLogistics + company.company.qttCompCommercials + company.company.qttCompInfrastructure }}</h3>
                     <i class="ti-user icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
-                  <p class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Funcionários restante</small></span></p>
+                  <!--<p class="mb-0 mt-2 text-danger"> <span class="text-black ml-1"><small>Funcionários restante</small></span></p>-->
                 </div>
               </div>
             </div>
@@ -160,14 +160,14 @@
                 <div class="card-body">
                   <p class="card-title text-md-center text-xl-left">Armazém</p>
                   <div class="d-flex flex-wrap justify-content-between justify-content-md-center justify-content-xl-between align-items-center">
-                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">40016</h3>
+                    <h3 class="mb-0 mb-md-2 mb-xl-0 order-md-1 order-xl-0">{{company.company.qttStock}}</h3>
                     <i class="ti-package icon-md text-muted mb-0 mb-md-3 mb-xl-0"></i>
                   </div>
-                  <p class="mb-0 mt-2 text-success">50.00%<span class="text-black ml-1"><small>Disponível</small></span></p>
+                  <!--<p class="mb-0 mt-2 text-success">50.00%<span class="text-black ml-1"><small>Disponível</small></span></p>-->
                 </div>
               </div>
             </div>
-            <div class="col-md-3 grid-margin stretch-card">
+            <!-- <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-title text-md-center text-xl-left">Compra</p>
@@ -178,7 +178,7 @@
                   <p class="mb-0 mt-2 text-success"><span class="text-black ml-1"><small>Unidades compradas na última compra</small></span></p>
                 </div>
               </div>
-            </div>
+            </div> -->
             <!-- <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
@@ -191,7 +191,7 @@
                 </div>
               </div>
             </div> -->
-            <div class="col-md-3 grid-margin stretch-card">
+            <!-- <div class="col-md-3 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-title text-md-center text-xl-left">Produtos vendidos</p>
@@ -201,7 +201,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
 
           </div>
         </div>
@@ -210,7 +210,7 @@
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019. All rights reserved.</span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © {{ new Date().getFullYear() }}. All rights reserved.</span>
             <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Feito por ALFA COMPANY</span>
           </div>
         </footer>
@@ -232,9 +232,31 @@
         ...mapState({
             region : state => state.region,
             auth  : state => state.auth,
-            company: state => state.company
+            company: state => state.company,
+            pa: state => state.pa
         })
     },
+    mounted () {
+      const { leaderId } = this.company.company;
+      this.onLoadCompany({ leaderId });
+      const { idRegion } = this.company.company;
+      this.onLoadRegion({ regionId: idRegion });
+    },
+
+    methods: {
+      ...mapActions('company', ['SEARCH_COMPANY_LEADER_ID']),
+      ...mapActions('region', ['SEARCH_REGION']),
+      ...mapActions('pa', ['LIST_PAS']),
+
+        onLoadCompany: function ({leaderId}) {
+          this.SEARCH_COMPANY_LEADER_ID({ id: leaderId});
+          this.LIST_PAS();
+        },     
+        onLoadRegion: function ({regionId}) {
+          this.SEARCH_REGION({id: regionId});
+        },     
+    }
+  
   }
   
 </script>

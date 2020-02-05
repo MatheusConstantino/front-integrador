@@ -14,6 +14,7 @@ import { market } from "./market/market.module";
 import { sales } from "./sales/sales.module";
 import { teams } from "./teams/teams.module";
 import { baseRadio } from "./base-radio/base-radio.module";
+import { pa } from "./pa/pa.module";
 
 Vue.use(Vuex);
 
@@ -30,7 +31,8 @@ export const store = new Vuex.Store({
     market,
     sales,
     teams,
-    baseRadio
+    baseRadio,
+    pa
   },
   plugins: [createPersistedState({ blacklist: ["error", "success", "clear"] })]
 });
